@@ -1,9 +1,13 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using Localization.Resources.AbpUi;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Team.Bloging.MongoDb;
 using Team.Bloging.Localization;
 using Team.Bloging.MultiTenancy;
@@ -18,8 +22,10 @@ using Volo.Abp.AspNetCore.Mvc.UI;
 using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
+using Volo.Abp.AspNetCore.Mvc.UI.Theming;
 using Volo.Abp.Autofac;
 using Volo.Abp.AutoMapper;
+using Volo.Abp.Data;
 using Volo.Abp.Identity;
 using Volo.Abp.Identity.Web;
 using Volo.Abp.Localization;
@@ -28,6 +34,7 @@ using Volo.Abp.PermissionManagement;
 using Volo.Abp.PermissionManagement.Identity;
 using Volo.Abp.PermissionManagement.Web;
 using Volo.Abp.TenantManagement.Web;
+using Volo.Abp.Threading;
 using Volo.Abp.Ui.Navigation.Urls;
 using Volo.Abp.UI;
 using Volo.Abp.UI.Navigation;
@@ -90,6 +97,24 @@ namespace Team.Bloging.Web
             ConfigureNavigationServices();
             ConfigureAutoApiControllers();
             ConfigureSwaggerServices(context.Services);
+            var cultures = new List<CultureInfo>
+            {
+                new CultureInfo("cs"),
+                new CultureInfo("en"),
+                new CultureInfo("tr"),
+                new CultureInfo("zh-Hans")
+            };
+            Configure<RequestLocalizationOptions>(options =>
+            {
+                options.DefaultRequestCulture = new RequestCulture("en");
+                options.SupportedCultures = cultures;
+                options.SupportedUICultures = cultures;
+            });
+            Configure<ThemingOptions>(options =>
+            {
+                options.DefaultThemeName = BasicTheme.Name;
+            });
+
             Configure<BlogFileOptions>(options =>
             {
                 options.FileUploadLocalFolder = Path.Combine(hostingEnvironment.WebRootPath, "files");
@@ -194,9 +219,8 @@ namespace Team.Bloging.Web
         public override void OnApplicationInitialization(ApplicationInitializationContext context)
         {
             var app = context.GetApplicationBuilder();
-            var env = context.GetEnvironment();
 
-            if (env.IsDevelopment())
+            if (context.GetEnvironment().IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
@@ -206,23 +230,38 @@ namespace Team.Bloging.Web
             }
 
             app.UseVirtualFiles();
-            app.UseAuthentication();
-            app.UseJwtTokenMiddleware();
 
-            if (MultiTenancyConsts.IsEnabled)
-            {
-                app.UseMultiTenancy();
-            }
-
-            app.UseIdentityServer();
-            app.UseAbpRequestLocalization();
             app.UseSwagger();
             app.UseSwaggerUI(options =>
             {
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Bloging API");
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Support APP API");
             });
-            app.UseAuditing();
-            app.UseMvcWithDefaultRouteAndArea();
+
+            app.UseAuthentication();
+
+            app.UseRequestLocalization(app.ApplicationServices.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "defaultWithArea",
+                    template: "{area}/{controller=Home}/{action=Index}/{id?}");
+
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
+
+
+            using (var scope = context.ServiceProvider.CreateScope())
+            {
+                AsyncHelper.RunSync(async () =>
+                {
+                    await scope.ServiceProvider
+                        .GetRequiredService<IDataSeeder>()
+                        .SeedAsync();
+                });
+            }
         }
     }
 }

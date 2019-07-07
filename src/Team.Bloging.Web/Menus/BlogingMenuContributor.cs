@@ -28,7 +28,7 @@ namespace Team.Bloging.Web.Menus
 
             var l = context.ServiceProvider.GetRequiredService<IStringLocalizer<BlogingResource>>();
 
-            context.Menu.Items.Insert(0, new ApplicationMenuItem("Bloging.Home", l["Menu:Home"], "/"));
+            context.Menu.Items.Insert(0, new ApplicationMenuItem("Bloging.Home", l["Menu:Home"], "/Blog"));
         }
     }
 }

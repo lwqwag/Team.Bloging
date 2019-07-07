@@ -256,3 +256,4 @@ src/Team.Bloging.Web/Logs/*
 src/Team.Bloging.Web.Host/Logs/*
 src/Team.Bloging.IdentityServer/Logs/*
 src/Team.Bloging.HttpApi.Host/Logs/*
+/src/Team.Bloging.Web/wwwroot/files

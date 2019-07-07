@@ -37,27 +37,27 @@
     <PackageReference Include="Serilog.Sinks.File" Version="4.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
     <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="2.7.0" />
-    <PackageReference Include="Volo.Blogging.Application" Version="0.18.0" />
-    <PackageReference Include="Volo.Blogging.Application.Contracts" Version="0.18.0" />
-    <PackageReference Include="Volo.Blogging.Domain" Version="0.18.0" />
-    <PackageReference Include="Volo.Blogging.Domain.Shared" Version="0.18.0" />
-    <PackageReference Include="Volo.Blogging.HttpApi" Version="0.18.0" />
-    <PackageReference Include="Volo.Blogging.HttpApi.Client" Version="0.18.0" />
-    <PackageReference Include="Volo.Blogging.MongoDB" Version="0.18.0" />
-    <PackageReference Include="Volo.Blogging.Web" Version="0.18.0" />
+    <PackageReference Include="Volo.Blogging.Application" Version="0.18.1" />
+    <PackageReference Include="Volo.Blogging.Application.Contracts" Version="0.18.1" />
+    <PackageReference Include="Volo.Blogging.Domain" Version="0.18.1" />
+    <PackageReference Include="Volo.Blogging.Domain.Shared" Version="0.18.1" />
+    <PackageReference Include="Volo.Blogging.HttpApi" Version="0.18.1" />
+    <PackageReference Include="Volo.Blogging.HttpApi.Client" Version="0.18.1" />
+    <PackageReference Include="Volo.Blogging.MongoDB" Version="0.18.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Team.Bloging.Application\Team.Bloging.Application.csproj" />
     <ProjectReference Include="..\Team.Bloging.HttpApi\Team.Bloging.HttpApi.csproj" />
     <ProjectReference Include="..\Team.Bloging.MongoDB\Team.Bloging.MongoDB.csproj" />
-    <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic" Version="0.18.0" />
-    <PackageReference Include="Volo.Abp.Autofac" Version="0.18.0" />
-    <PackageReference Include="Volo.Abp.AspNetCore.Authentication.JwtBearer" Version="0.18.0" />
-    <PackageReference Include="Volo.Abp.Identity.Web" Version="0.18.0" />
-    <PackageReference Include="Volo.Abp.Account.Web.IdentityServer" Version="0.18.0" />
-    <PackageReference Include="Volo.Abp.TenantManagement.Web" Version="0.18.0" />
-    <PackageReference Include="Volo.Abp.FeatureManagement.Web" Version="0.18.0" />
+    <ProjectReference Include="..\Volo.Blogging.Web\Volo.Blogging.Web.csproj" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic" Version="0.18.1" />
+    <PackageReference Include="Volo.Abp.Autofac" Version="0.18.1" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Authentication.JwtBearer" Version="0.18.1" />
+    <PackageReference Include="Volo.Abp.Identity.Web" Version="0.18.1" />
+    <PackageReference Include="Volo.Abp.Account.Web.IdentityServer" Version="0.18.1" />
+    <PackageReference Include="Volo.Abp.TenantManagement.Web" Version="0.18.1" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.Web" Version="0.18.1" />
   </ItemGroup>
 
 </Project>

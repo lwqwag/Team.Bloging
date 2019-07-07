@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.Autofac" Version="0.18.0" />
+    <PackageReference Include="Volo.Abp.Autofac" Version="0.18.1" />
     <ProjectReference Include="..\Team.Bloging.Application.Contracts\Team.Bloging.Application.Contracts.csproj" />
     <ProjectReference Include="..\Team.Bloging.MongoDB\Team.Bloging.MongoDB.csproj" />
   </ItemGroup>
