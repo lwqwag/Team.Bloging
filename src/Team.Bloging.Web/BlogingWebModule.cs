@@ -245,11 +245,11 @@ namespace Team.Bloging.Web
             {
                 routes.MapRoute(
                     name: "defaultWithArea",
-                    template: "{area}/{controller=Home}/{action=Index}/{id?}");
+                    template: "{area}/{controller=Home}/{action=Blog}/{id?}");
 
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Blog}/{id?}");
             });
 
 
