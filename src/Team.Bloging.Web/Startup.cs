@@ -21,6 +21,7 @@ namespace Team.Bloging.Web
         public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
         {
             app.InitializeApplication();
+            app.UseVirtualFiles();
         }
     }
 }
