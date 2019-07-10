@@ -84,7 +84,7 @@ namespace Team.Bloging.Web
         {
             Configure<BloggingUrlOptions>(options =>
             {
-                options.RoutePrefix = null;
+                options.RoutePrefix = "blog";
             });
             var hostingEnvironment = context.Services.GetHostingEnvironment();
             var configuration = context.Services.GetConfiguration();
@@ -245,11 +245,11 @@ namespace Team.Bloging.Web
             {
                 routes.MapRoute(
                     name: "defaultWithArea",
-                    template: "{area}/{controller=Home}/{action=Blog}/{id?}");
+                    template: "{area}/{controller=Home}/{action=Index}/{id?}");
 
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Blog}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
 
 

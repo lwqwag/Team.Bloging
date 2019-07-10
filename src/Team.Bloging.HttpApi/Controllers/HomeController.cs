@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Volo.Abp.AspNetCore.Mvc;
 
-namespace Team.Bloging.Web
+namespace Team.Bloging.Controllers
 {
-    public class HomeController : AbpController
+    public class HomeController : BlogingController
     {
         public ActionResult Index()
         {
