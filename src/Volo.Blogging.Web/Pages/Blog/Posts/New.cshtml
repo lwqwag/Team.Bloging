@@ -10,13 +10,48 @@
         <abp-style type="@typeof(TuiEditorStyleContributor)" />
         <abp-style src="/Pages/Blog/Posts/new.css" />
     </abp-style-bundle>
+    <link rel="stylesheet" href="~/libs/editor.md/css/editormd.min.css" />
 }
 @section scripts {
     <abp-script-bundle @*name="@typeof(NewModel).FullName" *@>
         <abp-script type="@typeof(TuiEditorScriptContributor)" />
         <abp-script src="/Pages/Blog/Posts/new.js" />
     </abp-script-bundle>
-    
+    <link rel="stylesheet" href="~/libs/tui-editor/tui-editor.css"></link>
+    <link rel="stylesheet" href="~/libs/tui-editor/tui-editor-contents.css"></link>
+    <link rel="stylesheet" href="~/libs/highlight.js/styles/github.css"></link>
+    <script src="~/libs/tui-editor/dist/tui-editor-Editor-full.js"></script>
+    <script type="text/javascript">
+        var editorDataKey = "tuiEditor";
+        var $editorContainer = $container.find(".new-post-editor");
+        var $submitButton = $container.find("button[type=submit]");
+        var $form = $container.find("form#new-post-form");
+        var editor = new tui.Editor({
+            el: document.querySelector('#editSection'),
+            initialEditType: 'markdown',
+            previewStyle: 'vertical',
+            height: '300px',
+            hooks: {
+                addImageBlobHook: function (blob, callback, source) {
+                    var imageAltText = blob.name;
+
+                    uploadImage(blob,
+                        function (fileUrl) {
+                            callback(fileUrl, imageAltText);
+                        });
+                }
+            },
+            events: {
+                load: function () {
+                    $editorContainer.find(".loading-cover").remove();
+                    $submitButton.prop("disabled", false);
+                    $form.data("validator").settings.ignore = '.ignore';
+                    $editorContainer.find(':input').addClass('ignore');
+                }
+            }
+        }).data(editorDataKey);;
+
+    </script>
 }
 <div id="qa-new-post-container">
     <form method="post" id="new-post-form">
@@ -40,13 +75,10 @@
         <abp-input asp-for="Post.Content" />
         <abp-input asp-for="Post.Tags" />
         
-        <div id="editor" class="form-group">
-            @*Tips: Editor.md can auto append a `<textarea>` tag*@ 
-            <textarea style="display:none;min-height:300px">### Hello Editor.md !</textarea>
-        </div>
+        
 
         <div class="form-group">
-            <div class="new-post-editor">
+            <div class="new-post-editor" id="editSection">
                 <div class="gradient-background-animation loading-cover"></div>
             </div>
         </div>

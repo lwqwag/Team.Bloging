@@ -1,10 +1,12 @@
-﻿$(function () {
+﻿
+$(function () {
 
     var $container = $("#qa-new-post-container");
     var $editorContainer = $container.find(".new-post-editor");
     var $submitButton = $container.find("button[type=submit]");
     var $form = $container.find("form#new-post-form");
     var editorDataKey = "tuiEditor";
+    var $editor = $("#editor");
 
     var setCoverImage = function (file) {
         $('#Post_CoverImage').val(file.fileUrl);
@@ -51,31 +53,32 @@
             }
         });
     };
+   
+    //var newPostEditor = $editorContainer.tuiEditor({
+    //    usageStatistics: false,
+    //    initialEditType: 'markdown',
+    //    previewStyle: 'tab',
+    //    height: "auto",
+        
+    //    hooks: {
+    //        addImageBlobHook: function (blob, callback, source) {
+    //            var imageAltText = blob.name;
 
-    var newPostEditor = $editorContainer.tuiEditor({
-        usageStatistics: false,
-        initialEditType: 'markdown',
-        previewStyle: 'tab',
-        height: "auto",
-        hooks: {
-            addImageBlobHook: function (blob, callback, source) {
-                var imageAltText = blob.name;
-
-                uploadImage(blob,
-                    function (fileUrl) {
-                        callback(fileUrl, imageAltText);
-                    });
-            }
-        },
-        events: {
-            load: function () {
-                $editorContainer.find(".loading-cover").remove();
-                $submitButton.prop("disabled", false);
-                $form.data("validator").settings.ignore = '.ignore';
-                $editorContainer.find(':input').addClass('ignore');
-            }
-        }
-    }).data(editorDataKey);
+    //            uploadImage(blob,
+    //                function (fileUrl) {
+    //                    callback(fileUrl, imageAltText);
+    //                });
+    //        }
+    //    },
+    //    events: {
+    //        load: function () {
+    //            $editorContainer.find(".loading-cover").remove();
+    //            $submitButton.prop("disabled", false);
+    //            $form.data("validator").settings.ignore = '.ignore';
+    //            $editorContainer.find(':input').addClass('ignore');
+    //        }
+    //    }
+    //}).data(editorDataKey);
 
     $container.find("form#new-post-form").submit(function (e) {
         var $postTextInput = $form.find("input[name='Post.Content']");
@@ -119,14 +122,5 @@
         if (!reflectedChange) {
             urlEdited = true;
         }
-    });
-
-    var editor = editormd("editor", {
-        // width: "100%",
-        height: "400px",
-        emoji: true,
-        path: "libs/editor.md/lib/"
-        // markdown: "xxxx",     // dynamic set Markdown text
-        // Autoload modules mode, codemirror, marked... dependents libs path
     });
 });
