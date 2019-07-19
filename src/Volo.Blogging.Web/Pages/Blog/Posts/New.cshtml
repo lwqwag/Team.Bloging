@@ -16,6 +16,7 @@
         <abp-script type="@typeof(TuiEditorScriptContributor)" />
         <abp-script src="/Pages/Blog/Posts/new.js" />
     </abp-script-bundle>
+    
 }
 <div id="qa-new-post-container">
     <form method="post" id="new-post-form">
@@ -35,10 +36,14 @@
                 <img id="CoverImage" src="@Model.Post.CoverImage" height="80" width="160" style="display:none" />
             </abp-column>
         </abp-row>
-
+       
         <abp-input asp-for="Post.Content" />
         <abp-input asp-for="Post.Tags" />
-
+        
+        <div id="editor" class="form-group">
+            @*Tips: Editor.md can auto append a `<textarea>` tag*@ 
+            <textarea style="display:none;min-height:300px">### Hello Editor.md !</textarea>
+        </div>
 
         <div class="form-group">
             <div class="new-post-editor">

@@ -121,4 +121,12 @@
         }
     });
 
+    var editor = editormd("editor", {
+        // width: "100%",
+        height: "400px",
+        emoji: true,
+        path: "libs/editor.md/lib/"
+        // markdown: "xxxx",     // dynamic set Markdown text
+        // Autoload modules mode, codemirror, marked... dependents libs path
+    });
 });
