@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="~/libs/editor.md/css/editormd.min.css" />
 }
 @section scripts {
+    <script src="~/libs/jquery-form/jquery.form.min.js"></script>
+
     <abp-script-bundle @*name="@typeof(NewModel).FullName" *@>
         <abp-script type="@typeof(TuiEditorScriptContributor)" />
         <abp-script src="/Pages/Blog/Posts/new.js" />
@@ -21,8 +23,10 @@
     <link rel="stylesheet" href="~/libs/tui-editor/tui-editor-contents.css"></link>
     <link rel="stylesheet" href="~/libs/highlight.js/styles/github.css"></link>
     <script src="~/libs/tui-editor/dist/tui-editor-Editor-full.js"></script>
+    <script src="~/libs/jquery-validation/jquery.validate.js"></script>
     <script type="text/javascript">
         var editorDataKey = "tuiEditor";
+        var $container = $("#qa-new-post-container");
         var $editorContainer = $container.find(".new-post-editor");
         var $submitButton = $container.find("button[type=submit]");
         var $form = $container.find("form#new-post-form");
@@ -45,11 +49,30 @@
                 load: function () {
                     $editorContainer.find(".loading-cover").remove();
                     $submitButton.prop("disabled", false);
-                    $form.data("validator").settings.ignore = '.ignore';
+                    //$form.data("validator").settings.ignore = '.ignore';
                     $editorContainer.find(':input').addClass('ignore');
                 }
             }
-        }).data(editorDataKey);;
+        });
+
+        $container.find("form#new-post-form").submit(function (e) {
+            var $postTextInput = $form.find("input[name='Post.Content']");
+
+            var postText = editor.getMarkdown();
+            console.log(postText);
+            $postTextInput.val(postText);
+
+            if (!$form.valid()) {
+                var validationResult = $form.validate();
+                abp.message.warn(validationResult.errorList[0].message); //TODO: errors can be merged into lines. make sweetalert accept HTML.
+                e.preventDefault();
+                Console.log(false);
+                return false; //for old browsers
+            }
+            //Console.log(postText);
+            $submitButton.buttonBusy();
+            $(this).off('submit').submit();
+        });
 
     </script>
 }
@@ -71,11 +94,11 @@
                 <img id="CoverImage" src="@Model.Post.CoverImage" height="80" width="160" style="display:none" />
             </abp-column>
         </abp-row>
-       
+
         <abp-input asp-for="Post.Content" />
         <abp-input asp-for="Post.Tags" />
-        
-        
+
+
 
         <div class="form-group">
             <div class="new-post-editor" id="editSection">

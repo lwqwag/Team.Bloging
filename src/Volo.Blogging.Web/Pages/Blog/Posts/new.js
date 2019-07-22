@@ -1,4 +1,6 @@
 ﻿
+//import "~/libs/tui-editor/dist/tui-editor-Editor-full.js";
+//document.write("<script src='~/libs/tui-editor/dist/tui-editor-Editor-full.js'></script>");
 $(function () {
 
     var $container = $("#qa-new-post-container");
@@ -6,8 +8,6 @@ $(function () {
     var $submitButton = $container.find("button[type=submit]");
     var $form = $container.find("form#new-post-form");
     var editorDataKey = "tuiEditor";
-    var $editor = $("#editor");
-
     var setCoverImage = function (file) {
         $('#Post_CoverImage').val(file.fileUrl);
         $("#CoverImage").attr("src", file.fileUrl);
@@ -79,23 +79,25 @@ $(function () {
     //        }
     //    }
     //}).data(editorDataKey);
+   
+    //$container.find("form#new-post-form").submit(function (e) {
+    //    var $postTextInput = $form.find("input[name='Post.Content']");
 
-    $container.find("form#new-post-form").submit(function (e) {
-        var $postTextInput = $form.find("input[name='Post.Content']");
+    //    var postText = newPostEditor.getMarkdown();
+    //    Console.log(postText);
+    //    $postTextInput.val(postText);
 
-        var postText = newPostEditor.getMarkdown();
-        $postTextInput.val(postText);
-
-        if (!$form.valid()) {
-            var validationResult = $form.validate();
-            abp.message.warn(validationResult.errorList[0].message); //TODO: errors can be merged into lines. make sweetalert accept HTML.
-            e.preventDefault();
-            return false; //for old browsers 
-        }
-
-        $submitButton.buttonBusy();
-        $(this).off('submit').submit();
-    });
+    //    if (!$form.valid()) {
+    //        var validationResult = $form.validate();
+    //        abp.message.warn(validationResult.errorList[0].message); //TODO: errors can be merged into lines. make sweetalert accept HTML.
+    //        e.preventDefault();
+    //        Console.log(false);
+    //        return false; //for old browsers 
+    //    }
+    //    Console.log(postText);
+    //    $submitButton.buttonBusy();
+    //    $(this).off('submit').submit();
+    //});
 
     var urlEdited = false;
     var reflectedChange = false;
