@@ -14,7 +14,6 @@
 }
 @section scripts {
     <script src="~/libs/jquery-form/jquery.form.min.js"></script>
-
     <abp-script-bundle @*name="@typeof(NewModel).FullName" *@>
         <abp-script type="@typeof(TuiEditorScriptContributor)" />
         <abp-script src="/Pages/Blog/Posts/new.js" />
@@ -23,7 +22,6 @@
     <link rel="stylesheet" href="~/libs/tui-editor/tui-editor-contents.css"></link>
     <link rel="stylesheet" href="~/libs/highlight.js/styles/github.css"></link>
     <script src="~/libs/tui-editor/dist/tui-editor-Editor-full.js"></script>
-    <script src="~/libs/jquery-validation/jquery.validate.js"></script>
     <script type="text/javascript">
         var editorDataKey = "tuiEditor";
         var $container = $("#qa-new-post-container");

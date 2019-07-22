@@ -4,8 +4,14 @@
   "private": true,
   "dependencies": {
     "@abp/aspnetcore.mvc.ui.theme.basic": "^0.6.6",
+    "bootstrap": "^4.3.1",
     "highlight.js": "^9.15.8",
+    "lodash": "^4.17.13",
     "owl.carousel": "^2.3.4",
+    "popper.js": "1.14.7",
     "tui-editor": "^1.4.4"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2"
   }
 }
