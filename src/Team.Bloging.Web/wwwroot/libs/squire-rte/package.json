@@ -1,0 +1,59 @@
+{
+  "_args": [
+    [
+      "github:sohee-lee7/Squire#e7e620ca30a280db62c9e2fee166470d241af234",
+      "E:\\source\\repos\\Team.Bloging\\src\\Team.Bloging.Web"
+    ]
+  ],
+  "_from": "github:sohee-lee7/Squire#e7e620ca30a280db62c9e2fee166470d241af234",
+  "_id": "squire-rte@github:sohee-lee7/Squire#e7e620ca30a280db62c9e2fee166470d241af234",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/squire-rte",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "github:sohee-lee7/Squire#e7e620ca30a280db62c9e2fee166470d241af234",
+    "rawSpec": "github:sohee-lee7/Squire#e7e620ca30a280db62c9e2fee166470d241af234",
+    "saveSpec": "github:sohee-lee7/Squire#e7e620ca30a280db62c9e2fee166470d241af234",
+    "fetchSpec": null,
+    "gitCommittish": "e7e620ca30a280db62c9e2fee166470d241af234"
+  },
+  "_requiredBy": [
+    "/tui-editor"
+  ],
+  "_resolved": "github:sohee-lee7/Squire#e7e620ca30a280db62c9e2fee166470d241af234",
+  "_spec": "github:sohee-lee7/Squire#e7e620ca30a280db62c9e2fee166470d241af234",
+  "_where": "E:\\source\\repos\\Team.Bloging\\src\\Team.Bloging.Web",
+  "author": {
+    "name": "Neil Jenkins"
+  },
+  "bugs": {
+    "url": "https://github.com/neilj/Squire/issues"
+  },
+  "description": "Squire is an HTML5 rich text editor, which provides powerful cross-browser normalisation, whilst being supremely lightweight and flexible.",
+  "devDependencies": {
+    "mocha": "2.2.5",
+    "uglify-js": "^2.4.15",
+    "unexpected": "8.2.0"
+  },
+  "homepage": "https://github.com/neilj/Squire",
+  "keywords": [
+    "wysiwyg",
+    "editor",
+    "text",
+    "html",
+    "squire"
+  ],
+  "license": "MIT",
+  "main": "build/squire.js",
+  "name": "squire-rte",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neilj/Squire.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.9.0"
+}

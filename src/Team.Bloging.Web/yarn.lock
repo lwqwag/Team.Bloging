@@ -507,6 +507,13 @@ chownr@^1.1.1:
   resolved "https://registry.yarnpkg.com/chownr/-/chownr-1.1.1.tgz#54726b8b8fff4df053c42187e801fb4412df1494"
   integrity sha512-j38EvO5+LHX84jlo6h4UzmOwi0UgW61WRyPtJz4qaadK5eY3BTS5TY/S1Stc3Uk2lIM6TPevAlULiEJwie860g==
 
+cify@^2.1.10:
+  version "2.1.12"
+  resolved "https://registry.npm.taobao.org/cify/download/cify-2.1.12.tgz#40c26906feb685e2f2a8cef79c9bd3c29125804b"
+  integrity sha1-QMJpBv62heLyqM73nJvTwpElgEs=
+  dependencies:
+    ntils "^3.1.9"
+
 class-utils@^0.3.5:
   version "0.3.6"
   resolved "https://registry.yarnpkg.com/class-utils/-/class-utils-0.3.6.tgz#f93369ae8b9a7ce02fd41faad0ca83033190c463"
@@ -515,6 +522,15 @@ class-utils@^0.3.5:
     define-property "^0.2.5"
     isobject "^3.0.0"
     static-extend "^0.1.1"
+
+clipboard@^2.0.0:
+  version "2.0.4"
+  resolved "https://registry.npm.taobao.org/clipboard/download/clipboard-2.0.4.tgz#836dafd66cf0fea5d71ce5d5b0bf6e958009112d"
+  integrity sha1-g22v1mzw/qXXHOXVsL9ulYAJES0=
+  dependencies:
+    good-listener "^1.2.2"
+    select "^1.1.2"
+    tiny-emitter "^2.0.0"
 
 cliui@^3.2.0:
   version "3.2.0"
@@ -715,6 +731,11 @@ define-property@^2.0.2:
     is-descriptor "^1.0.2"
     isobject "^3.0.1"
 
+delegate@^3.1.2:
+  version "3.2.0"
+  resolved "https://registry.npm.taobao.org/delegate/download/delegate-3.2.0.tgz#b66b71c3158522e8ab5744f720d8ca0c2af59166"
+  integrity sha1-tmtxwxWFIuirV0T3INjKDCr1kWY=
+
 delegates@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delegates/-/delegates-1.0.0.tgz#84c6e159b81904fdca59a0ef44cd870d31250f9a"
@@ -746,6 +767,24 @@ each-props@^1.3.0:
   dependencies:
     is-plain-object "^2.0.1"
     object.defaults "^1.1.0"
+
+editor-md@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.npm.taobao.org/editor-md/download/editor-md-0.0.2.tgz#443b47a4738163d6d04189597d040028ae1b5159"
+  integrity sha1-RDtHpHOBY9bQQYlZfQQAKK4bUVk=
+  dependencies:
+    font-awesome "^4.7.0"
+    github-markdown-css "^2.4.1"
+    marked "^0.3.6"
+    mokit "^3.1.2"
+    ntils "^2.1.0"
+    prismjs "^1.8.3"
+    shortcut-key "^1.0.0"
+
+editor.md@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.npm.taobao.org/editor.md/download/editor.md-1.5.0.tgz#6fe636a88a39b85613f53eee6ecb7b7348ab23bf"
+  integrity sha1-b+Y2qIo5uFYT9T7ubst7c0irI78=
 
 end-of-stream@^1.0.0, end-of-stream@^1.1.0:
   version "1.4.1"
@@ -1005,6 +1044,11 @@ get-value@^2.0.3, get-value@^2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/get-value/-/get-value-2.0.6.tgz#dc15ca1c672387ca76bd37ac0a395ba2042a2c28"
 
+github-markdown-css@^2.4.1:
+  version "2.10.0"
+  resolved "https://registry.npm.taobao.org/github-markdown-css/download/github-markdown-css-2.10.0.tgz#0612fed22816b33b282f37ef8def7a4ecabfe993"
+  integrity sha1-BhL+0igWszsoLzfvje96Tsq/6ZM=
+
 glob-parent@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/glob-parent/-/glob-parent-3.1.0.tgz#9e6af6299d8d3bd2bd40430832bd113df906c5ae"
@@ -1076,6 +1120,13 @@ glogg@^1.0.0:
   resolved "https://registry.yarnpkg.com/glogg/-/glogg-1.0.1.tgz#dcf758e44789cc3f3d32c1f3562a3676e6a34810"
   dependencies:
     sparkles "^1.0.0"
+
+good-listener@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.npm.taobao.org/good-listener/download/good-listener-1.2.2.tgz#d53b30cdf9313dffb7dc9a0d477096aa6d145c50"
+  integrity sha1-1TswzfkxPf+33JoNR3CWqm0UXFA=
+  dependencies:
+    delegate "^3.1.2"
 
 graceful-fs@^4.0.0, graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.6:
   version "4.1.15"
@@ -1557,6 +1608,11 @@ markdown-it@^8.4.0:
     mdurl "^1.0.1"
     uc.micro "^1.0.5"
 
+marked@^0.3.6:
+  version "0.3.19"
+  resolved "https://registry.npm.taobao.org/marked/download/marked-0.3.19.tgz?cache=0&sync_timestamp=1562386392301&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fmarked%2Fdownload%2Fmarked-0.3.19.tgz#5d47f709c4c9fc3c216b6d46127280f40b39d790"
+  integrity sha1-XUf3CcTJ/Dwha21GEnKA9As515A=
+
 matchdep@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/matchdep/-/matchdep-2.0.0.tgz#c6f34834a0d8dbc3b37c27ee8bbcb27c7775582e"
@@ -1638,6 +1694,14 @@ mkdirp@^0.5.0, mkdirp@^0.5.1:
   integrity sha1-MAV0OOrGz3+MR2fzhkjWaX11yQM=
   dependencies:
     minimist "0.0.8"
+
+mokit@^3.1.2:
+  version "3.1.3"
+  resolved "https://registry.npm.taobao.org/mokit/download/mokit-3.1.3.tgz#1a9eca965d0947f7915832a4d15b656303f38386"
+  integrity sha1-Gp7Kll0JR/eRWDKk0VtlYwPzg4Y=
+  dependencies:
+    cify "^2.1.10"
+    ntils "^2.1.0"
 
 ms@2.0.0:
   version "2.0.0"
@@ -1764,6 +1828,16 @@ npmlog@^4.0.2:
     console-control-strings "~1.1.0"
     gauge "~2.7.3"
     set-blocking "~2.0.0"
+
+ntils@^2.1.0:
+  version "2.1.2"
+  resolved "https://registry.npm.taobao.org/ntils/download/ntils-2.1.2.tgz#77d3d6583e8fc9cbb3c9d8e5b17f91a55d842aaf"
+  integrity sha1-d9PWWD6PycuzydjlsX+RpV2EKq8=
+
+ntils@^3.1.9:
+  version "3.1.11"
+  resolved "https://registry.npm.taobao.org/ntils/download/ntils-3.1.11.tgz#672c3646fd87d0669a9786cc592ec5ef1ad6f5de"
+  integrity sha1-Zyw2Rv2H0Gaal4bMWS7F7xrW9d4=
 
 number-is-nan@^1.0.0:
   version "1.0.1"
@@ -1999,6 +2073,13 @@ posix-character-classes@^0.1.0:
 pretty-hrtime@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/pretty-hrtime/-/pretty-hrtime-1.0.3.tgz#b7e3ea42435a4c9b2759d99e0f201eb195802ee1"
+
+prismjs@^1.8.3:
+  version "1.17.1"
+  resolved "https://registry.npm.taobao.org/prismjs/download/prismjs-1.17.1.tgz#e669fcbd4cdd873c35102881c33b14d0d68519be"
+  integrity sha1-5mn8vUzdhzw1ECiBwzsU0NaFGb4=
+  optionalDependencies:
+    clipboard "^2.0.0"
 
 process-nextick-args@^2.0.0, process-nextick-args@~2.0.0:
   version "2.0.0"
@@ -2239,6 +2320,11 @@ select2@^4.0.5:
     almond "~0.3.1"
     jquery-mousewheel "~3.1.13"
 
+select@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.npm.taobao.org/select/download/select-1.1.2.tgz#0e7350acdec80b1108528786ec1d4418d11b396d"
+  integrity sha1-DnNQrN7ICxEIUoeG7B1EGNEbOW0=
+
 semver-greatest-satisfied-range@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/semver-greatest-satisfied-range/-/semver-greatest-satisfied-range-1.1.0.tgz#13e8c2658ab9691cb0cd71093240280d36f77a5b"
@@ -2273,6 +2359,11 @@ set-value@^2.0.0:
     is-extendable "^0.1.1"
     is-plain-object "^2.0.3"
     split-string "^3.0.1"
+
+shortcut-key@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npm.taobao.org/shortcut-key/download/shortcut-key-1.0.0.tgz#cb6ce2c759d19f96ec1c822b9389d0adb26923d2"
+  integrity sha1-y2zix1nRn5bsHIIrk4nQrbJpI9I=
 
 signal-exit@^3.0.0:
   version "3.0.2"
@@ -2499,6 +2590,11 @@ timeago@^1.6.3:
   resolved "https://registry.yarnpkg.com/timeago/-/timeago-1.6.3.tgz#162a1adae99356297df59339837d09f1b0f36465"
   dependencies:
     jquery ">=1.2.3"
+
+tiny-emitter@^2.0.0:
+  version "2.1.0"
+  resolved "https://registry.npm.taobao.org/tiny-emitter/download/tiny-emitter-2.1.0.tgz#1d1a56edfc51c43e863cbb5382a72330e3555423"
+  integrity sha1-HRpW7fxRxD6GPLtTgqcjMONVVCM=
 
 to-absolute-glob@^2.0.0:
   version "2.0.2"

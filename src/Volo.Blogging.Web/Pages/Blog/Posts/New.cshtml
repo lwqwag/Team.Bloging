@@ -52,7 +52,21 @@
                 }
             }
         });
+        var uploadImage = function (file, callbackFn) {
+            var formData = new FormData();
+            formData.append('file', file);
 
+            $.ajax({ 
+                type: "POST",
+                url: "/api/blogging/files/images/upload",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    callbackFn(response.fileUrl);
+                }
+            });
+        };
         $container.find("form#new-post-form").submit(function (e) {
             var $postTextInput = $form.find("input[name='Post.Content']");
 
