@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@abp/aspnetcore.mvc.ui.theme.basic": "^0.6.6",
+    "@abp/blogging": "^0.7.6",
     "bootstrap": "^4.3.1",
     "editor-md": "^0.0.2",
     "editor.md": "^1.5.0",

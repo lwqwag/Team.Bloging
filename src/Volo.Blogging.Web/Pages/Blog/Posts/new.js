@@ -1,12 +1,10 @@
-﻿
-$(function () {
+﻿$(function () {
 
     var $container = $("#qa-new-post-container");
     var $editorContainer = $container.find(".new-post-editor");
     var $submitButton = $container.find("button[type=submit]");
     var $form = $container.find("form#new-post-form");
     var editorDataKey = "tuiEditor";
-    var $editor = $("#editor");
 
     var setCoverImage = function (file) {
         $('#Post_CoverImage').val(file.fileUrl);
@@ -42,7 +40,7 @@ $(function () {
         var formData = new FormData();
         formData.append('file', file);
 
-        $.ajax({ 
+        $.ajax({
             type: "POST",
             url: "/api/blogging/files/images/upload",
             data: formData,
@@ -53,32 +51,31 @@ $(function () {
             }
         });
     };
-   
-    //var newPostEditor = $editorContainer.tuiEditor({
-    //    usageStatistics: false,
-    //    initialEditType: 'markdown',
-    //    previewStyle: 'tab',
-    //    height: "auto",
-        
-    //    hooks: {
-    //        addImageBlobHook: function (blob, callback, source) {
-    //            var imageAltText = blob.name;
 
-    //            uploadImage(blob,
-    //                function (fileUrl) {
-    //                    callback(fileUrl, imageAltText);
-    //                });
-    //        }
-    //    },
-    //    events: {
-    //        load: function () {
-    //            $editorContainer.find(".loading-cover").remove();
-    //            $submitButton.prop("disabled", false);
-    //            $form.data("validator").settings.ignore = '.ignore';
-    //            $editorContainer.find(':input').addClass('ignore');
-    //        }
-    //    }
-    //}).data(editorDataKey);
+    var newPostEditor = $editorContainer.tuiEditor({
+        usageStatistics: false,
+        initialEditType: 'markdown',
+        previewStyle: 'tab',
+        height: "auto",
+        hooks: {
+            addImageBlobHook: function (blob, callback, source) {
+                var imageAltText = blob.name;
+
+                uploadImage(blob,
+                    function (fileUrl) {
+                        callback(fileUrl, imageAltText);
+                    });
+            }
+        },
+        events: {
+            load: function () {
+                $editorContainer.find(".loading-cover").remove();
+                $submitButton.prop("disabled", false);
+                $form.data("validator").settings.ignore = '.ignore';
+                $editorContainer.find(':input').addClass('ignore');
+            }
+        }
+    }).data(editorDataKey);
 
     $container.find("form#new-post-form").submit(function (e) {
         var $postTextInput = $form.find("input[name='Post.Content']");
@@ -123,4 +120,5 @@ $(function () {
             urlEdited = true;
         }
     });
+
 });

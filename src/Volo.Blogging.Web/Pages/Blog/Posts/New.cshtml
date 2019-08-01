@@ -10,83 +10,12 @@
         <abp-style type="@typeof(TuiEditorStyleContributor)" />
         <abp-style src="/Pages/Blog/Posts/new.css" />
     </abp-style-bundle>
-    <link rel="stylesheet" href="~/libs/editor.md/css/editormd.min.css" />
 }
 @section scripts {
-    <script src="~/libs/jquery-form/jquery.form.min.js"></script>
     <abp-script-bundle @*name="@typeof(NewModel).FullName" *@>
         <abp-script type="@typeof(TuiEditorScriptContributor)" />
         <abp-script src="/Pages/Blog/Posts/new.js" />
     </abp-script-bundle>
-    <link rel="stylesheet" href="~/libs/tui-editor/tui-editor.css"></link>
-    <link rel="stylesheet" href="~/libs/tui-editor/tui-editor-contents.css"></link>
-    <link rel="stylesheet" href="~/libs/highlight.js/styles/github.css"></link>
-    <script src="~/libs/tui-editor/dist/tui-editor-Editor-full.js"></script>
-    <script type="text/javascript">
-        var editorDataKey = "tuiEditor";
-        var $container = $("#qa-new-post-container");
-        var $editorContainer = $container.find(".new-post-editor");
-        var $submitButton = $container.find("button[type=submit]");
-        var $form = $container.find("form#new-post-form");
-        var editor = new tui.Editor({
-            el: document.querySelector('#editSection'),
-            initialEditType: 'markdown',
-            previewStyle: 'vertical',
-            height: '300px',
-            hooks: {
-                addImageBlobHook: function (blob, callback, source) {
-                    var imageAltText = blob.name;
-
-                    uploadImage(blob,
-                        function (fileUrl) {
-                            callback(fileUrl, imageAltText);
-                        });
-                }
-            },
-            events: {
-                load: function () {
-                    $editorContainer.find(".loading-cover").remove();
-                    $submitButton.prop("disabled", false);
-                    //$form.data("validator").settings.ignore = '.ignore';
-                    $editorContainer.find(':input').addClass('ignore');
-                }
-            }
-        });
-        var uploadImage = function (file, callbackFn) {
-            var formData = new FormData();
-            formData.append('file', file);
-
-            $.ajax({ 
-                type: "POST",
-                url: "/api/blogging/files/images/upload",
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: function (response) {
-                    callbackFn(response.fileUrl);
-                }
-            });
-        };
-        $container.find("form#new-post-form").submit(function (e) {
-            var $postTextInput = $form.find("input[name='Post.Content']");
-
-            var postText = editor.getMarkdown();
-            console.log(postText);
-            $postTextInput.val(postText);
-
-            if (!$form.valid()) {
-                var validationResult = $form.validate();
-                abp.message.warn(validationResult.errorList[0].message); //TODO: errors can be merged into lines. make sweetalert accept HTML.
-                e.preventDefault();
-                Console.log(false);
-                return false; //for old browsers
-            }
-            //Console.log(postText);
-            $submitButton.buttonBusy();
-            $(this).off('submit').submit();
-        });
-
-    </script>
 }
 <div id="qa-new-post-container">
     <form method="post" id="new-post-form">
@@ -111,9 +40,8 @@
         <abp-input asp-for="Post.Tags" />
 
 
-
         <div class="form-group">
-            <div class="new-post-editor" id="editSection">
+            <div class="new-post-editor">
                 <div class="gradient-background-animation loading-cover"></div>
             </div>
         </div>
