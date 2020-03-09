@@ -3,13 +3,13 @@ using Volo.Abp;
 using Volo.Abp.Data;
 using Volo.Abp.Modularity;
 
-namespace Team.Bloging.MongoDb
+namespace Team.Blogging.MongoDb
 {
     [DependsOn(
         typeof(BlogingTestBaseModule),
         typeof(BlogingMongoDbModule)
         )]
-    public class BlogingMongoDbTestModule : AbpModule
+    public class BloggingMongoDbTestModule : AbpModule
     {
         private MongoDbRunner _mongoDbRunner;
 
@@ -17,7 +17,7 @@ namespace Team.Bloging.MongoDb
         {
             _mongoDbRunner = MongoDbRunner.Start();
 
-            Configure<DbConnectionOptions>(options =>
+            Configure<AbpDbConnectionOptions>(options =>
             {
                 options.ConnectionStrings.Default = _mongoDbRunner.ConnectionString + "|Bloging";
             });

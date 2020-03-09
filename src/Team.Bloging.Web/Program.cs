@@ -1,18 +1,17 @@
 ﻿using System;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.InProcess;
+using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Events;
 
-namespace Team.Bloging.Web
+namespace Team.Blogging.Web
 {
     public class Program
     {
         public static int Main(string[] args)
         {
-            CurrentDirectoryHelpers.SetCurrentDirectory();
-
+          
             Log.Logger = new LoggerConfiguration()
 #if DEBUG
                 .MinimumLevel.Debug()
@@ -27,7 +26,7 @@ namespace Team.Bloging.Web
             try
             {
                 Log.Information("Starting web host.");
-                BuildWebHostInternal(args).Run();
+                CreateHostBuilder(args).Build().Run();
                 return 0;
             }
             catch (Exception ex)
@@ -41,14 +40,13 @@ namespace Team.Bloging.Web
             }
         }
 
-        public static IWebHost BuildWebHostInternal(string[] args) =>
-            new WebHostBuilder()
-                .UseKestrel()
-                .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseIIS()
-                .UseIISIntegration()
-                .UseStartup<Startup>()
-                .UseSerilog()
-                .Build();
+        internal static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                })
+                .UseAutofac()
+                .UseSerilog();
     }
 }

@@ -3,7 +3,7 @@
   <Import Project="..\..\common.props" />
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <OutputType>Exe</OutputType>
     <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
     <RootNamespace>Team.Bloging</RootNamespace>
@@ -15,9 +15,9 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
-    <ProjectReference Include="..\Team.Bloging.Application.Tests\Team.Bloging.Application.Tests.csproj" />
-    <ProjectReference Include="..\..\src\Team.Bloging.Web\Team.Bloging.Web.csproj" />
-    <PackageReference Include="Volo.Abp.AspNetCore.TestBase" Version="0.18.1" />
+    <ProjectReference Include="..\..\src\Team.Bloging.Web\Team.Blogging.Web.csproj" />
+    <ProjectReference Include="..\Team.Bloging.Application.Tests\Team.Blogging.Application.Tests.csproj" />
+    <PackageReference Include="Volo.Abp.AspNetCore.TestBase" Version="2.2.1" />
   </ItemGroup>
 
   <ItemGroup>

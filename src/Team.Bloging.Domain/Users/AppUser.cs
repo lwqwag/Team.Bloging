@@ -2,7 +2,7 @@
 using Volo.Abp.Domain.Entities.Auditing;
 using Volo.Abp.Users;
 
-namespace Team.Bloging.Users
+namespace Team.Blogging.Users
 {
     /* This entity shares the same table/collection ("AbpUsers" by default) with the
      * IdentityUser entity of the Identity module.

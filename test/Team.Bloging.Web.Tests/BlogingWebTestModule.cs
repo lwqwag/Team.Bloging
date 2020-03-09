@@ -6,22 +6,22 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Team.Bloging.Localization;
-using Team.Bloging.Web;
-using Team.Bloging.Web.Menus;
+using Team.Blogging.Localization;
+using Team.Blogging.Web;
+using Team.Blogging.Web.Menus;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.TestBase;
 using Volo.Abp.Localization;
-using Volo.Abp.Localization.Resources.AbpValidation;
 using Volo.Abp.Modularity;
 using Volo.Abp.UI.Navigation;
+using Volo.Abp.Validation.Localization;
 
-namespace Team.Bloging
+namespace Team.Blogging
 {
     [DependsOn(
         typeof(AbpAspNetCoreTestBaseModule),
         typeof(BlogingWebModule),
-        typeof(BlogingApplicationTestModule)
+        typeof(BloggingApplicationTestModule)
     )]
     public class BlogingWebTestModule : AbpModule
     {
@@ -62,7 +62,7 @@ namespace Team.Bloging
 
         private static void ConfigureNavigationServices(IServiceCollection services)
         {
-            services.Configure<NavigationOptions>(options =>
+            services.Configure<AbpNavigationOptions>(options =>
             {
                 options.MenuContributors.Add(new BlogingMenuContributor());
             });

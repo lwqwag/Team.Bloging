@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Team.Bloging.Users;
 using MongoDB.Driver.Linq;
 using Shouldly;
+using Team.Blogging.Users;
 using Volo.Abp.Domain.Repositories;
 using Xunit;
 
-namespace Team.Bloging.MongoDb.Samples
+namespace Team.Blogging.MongoDb.Samples
 {
     /* This is just an example test class.
      * Normally, you don't test ABP framework code
      * (like default AppUser repository IRepository<AppUser, Guid> here).
      * Only test your custom repository methods.
      */
-    public class SampleRepositoryTests : BlogingMongoDbTestBase
+    public class SampleRepositoryTests : BloggingMongoDbTestBase
     {
         private readonly IRepository<AppUser, Guid> _appUserRepository;
 

@@ -1,6 +1,6 @@
-﻿namespace Team.Bloging.Web.Pages
+﻿namespace Team.Blogging.Web.Pages
 {
-    public class IndexModel : BlogingPageModel
+    public class IndexModel : BloggingPageModel
     {
         public void OnGet()
         {

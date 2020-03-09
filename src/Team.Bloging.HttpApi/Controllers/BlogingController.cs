@@ -1,7 +1,7 @@
-﻿using Team.Bloging.Localization;
+﻿using Team.Blogging.Localization;
 using Volo.Abp.AspNetCore.Mvc;
 
-namespace Team.Bloging.Controllers
+namespace Team.Blogging.Controllers
 {
     /* Inherit your controllers from this class.
      */

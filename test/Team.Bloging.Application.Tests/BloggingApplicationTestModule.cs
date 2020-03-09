@@ -1,12 +1,12 @@
 ﻿using Volo.Abp.Modularity;
 
-namespace Team.Bloging
+namespace Team.Blogging
 {
     [DependsOn(
         typeof(BlogingApplicationModule),
         typeof(BlogingDomainTestModule)
         )]
-    public class BlogingApplicationTestModule : AbpModule
+    public class BloggingApplicationTestModule : AbpModule
     {
 
     }

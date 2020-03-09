@@ -7,19 +7,18 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
-using Team.Bloging.MongoDb;
-using Team.Bloging.Localization;
-using Team.Bloging.MultiTenancy;
-using Team.Bloging.Web.Menus;
+using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Swagger;
+using Team.Blogging.Localization;
+using Team.Blogging.MongoDb;
+using Team.Blogging.Web.Menus;
 using Volo.Abp;
 using Volo.Abp.Account.Web;
 using Volo.Abp.AspNetCore.Authentication.JwtBearer;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc.Localization;
-using Volo.Abp.AspNetCore.Mvc.UI;
-using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
 using Volo.Abp.AspNetCore.Mvc.UI.Theming;
@@ -32,17 +31,15 @@ using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement;
 using Volo.Abp.PermissionManagement.Identity;
-using Volo.Abp.PermissionManagement.Web;
 using Volo.Abp.TenantManagement.Web;
 using Volo.Abp.Threading;
-using Volo.Abp.Ui.Navigation.Urls;
-using Volo.Abp.UI;
 using Volo.Abp.UI.Navigation;
+using Volo.Abp.UI.Navigation.Urls;
 using Volo.Abp.VirtualFileSystem;
 using Volo.Blogging;
 using Volo.Blogging.Files;
 
-namespace Team.Bloging.Web
+namespace Team.Blogging.Web
 {
     [DependsOn(
         typeof(BlogingHttpApiModule),
@@ -110,7 +107,7 @@ namespace Team.Bloging.Web
                 options.SupportedCultures = cultures;
                 options.SupportedUICultures = cultures;
             });
-            Configure<ThemingOptions>(options =>
+            Configure<AbpThemingOptions>(options =>
             {
                 options.DefaultThemeName = BasicTheme.Name;
             });
@@ -121,7 +118,7 @@ namespace Team.Bloging.Web
             });
         }
 
-        private void ConfigureUrls(IConfigurationRoot configuration)
+        private void ConfigureUrls(IConfiguration configuration)
         {
             Configure<AppUrlOptions>(options =>
             {
@@ -129,7 +126,7 @@ namespace Team.Bloging.Web
             });
         }
 
-        private void ConfigureAuthentication(ServiceConfigurationContext context, IConfigurationRoot configuration)
+        private void ConfigureAuthentication(ServiceConfigurationContext context, IConfiguration configuration)
         {
             context.Services.AddAuthentication()
                 .AddIdentityServerAuthentication(options =>
@@ -153,11 +150,11 @@ namespace Team.Bloging.Web
             });
         }
 
-        private void ConfigureVirtualFileSystem(IHostingEnvironment hostingEnvironment)
+        private void ConfigureVirtualFileSystem(IWebHostEnvironment hostingEnvironment)
         {
             if (hostingEnvironment.IsDevelopment())
             {
-                Configure<VirtualFileSystemOptions>(options =>
+                Configure<AbpVirtualFileSystemOptions>(options =>
                 {
                     options.FileSets.ReplaceEmbeddedByPhysical<BlogingDomainSharedModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}Team.Bloging.Domain.Shared", Path.DirectorySeparatorChar)));
                     options.FileSets.ReplaceEmbeddedByPhysical<BlogingDomainModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}Team.Bloging.Domain", Path.DirectorySeparatorChar)));
@@ -189,7 +186,7 @@ namespace Team.Bloging.Web
         private void ConfigureNavigationServices()
         {
           
-            Configure<NavigationOptions>(options =>
+            Configure<AbpNavigationOptions>(options =>
             {
                 options.MenuContributors.Add(new BlogingMenuContributor());
             });
@@ -209,7 +206,7 @@ namespace Team.Bloging.Web
             services.AddSwaggerGen(
                 options =>
                 {
-                    options.SwaggerDoc("v1", new Info { Title = "Bloging API", Version = "v1" });
+                    options.SwaggerDoc("v1", new OpenApiInfo { Title = "Blogging API", Version = "v1" });
                     options.DocInclusionPredicate((docName, description) => true);
                     options.CustomSchemaIds(type => type.FullName);
                 }

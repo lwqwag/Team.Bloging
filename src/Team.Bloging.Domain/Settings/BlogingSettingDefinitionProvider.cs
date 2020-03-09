@@ -1,6 +1,6 @@
 ﻿using Volo.Abp.Settings;
 
-namespace Team.Bloging.Settings
+namespace Team.Blogging.Settings
 {
     public class BlogingSettingDefinitionProvider : SettingDefinitionProvider
     {

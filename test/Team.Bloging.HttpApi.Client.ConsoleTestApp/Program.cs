@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp;
 using Volo.Abp.Threading;
 
-namespace Team.Bloging.HttpApi.Client.ConsoleTestApp
+namespace Team.Blogging.HttpApi.Client.ConsoleTestApp
 {
     class Program
     {

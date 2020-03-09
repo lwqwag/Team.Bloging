@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging.Abstractions;
 using Volo.Abp.Data;
 using Volo.Abp.DependencyInjection;
 
-namespace Team.Bloging.Data
+namespace Team.Blogging.Data
 {
     public class BlogingDbMigrationService : ITransientDependency
     {

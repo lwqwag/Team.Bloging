@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Team.Bloging.Data
+namespace Team.Blogging.Data
 {
     public interface IBlogingDbSchemaMigrator
     {

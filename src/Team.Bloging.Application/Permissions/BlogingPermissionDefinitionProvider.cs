@@ -1,8 +1,8 @@
-﻿using Team.Bloging.Localization;
+﻿using Team.Blogging.Localization;
 using Volo.Abp.Authorization.Permissions;
 using Volo.Abp.Localization;
 
-namespace Team.Bloging.Permissions
+namespace Team.Blogging.Permissions
 {
     public class BlogingPermissionDefinitionProvider : PermissionDefinitionProvider
     {

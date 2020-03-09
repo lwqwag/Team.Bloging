@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.AuditLogging.MongoDB;
 using Volo.Abp.BackgroundJobs.MongoDB;
 using Volo.Abp.FeatureManagement.MongoDB;
@@ -7,9 +7,10 @@ using Volo.Abp.IdentityServer.MongoDB;
 using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement.MongoDB;
 using Volo.Abp.SettingManagement.MongoDB;
-using Volo.Abp.TenantManagement.MongoDb;
+using Volo.Abp.TenantManagement.MongoDB;
+using Volo.Blogging.MongoDB;
 
-namespace Team.Bloging.MongoDb
+namespace Team.Blogging.MongoDb
 {
     [DependsOn(
         typeof(BlogingDomainModule),
@@ -17,11 +18,12 @@ namespace Team.Bloging.MongoDb
         typeof(AbpSettingManagementMongoDbModule),
         typeof(AbpIdentityMongoDbModule),
         typeof(AbpIdentityServerMongoDbModule),
-        typeof(BackgroundJobsMongoDbModule),
+        typeof(AbpBackgroundJobsMongoDbModule),
         typeof(AbpAuditLoggingMongoDbModule),
         typeof(AbpTenantManagementMongoDbModule),
         typeof(AbpFeatureManagementMongoDbModule)
         )]
+    [DependsOn(typeof(BloggingMongoDbModule))]
     public class BlogingMongoDbModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)

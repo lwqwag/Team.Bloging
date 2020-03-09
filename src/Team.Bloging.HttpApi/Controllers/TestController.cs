@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Team.Bloging.Models.Test;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Team.Blogging.Models.Test;
 
-namespace Team.Bloging.Controllers
+namespace Team.Blogging.Controllers
 {
     [Route("api/test")]
     public class TestController : BlogingController

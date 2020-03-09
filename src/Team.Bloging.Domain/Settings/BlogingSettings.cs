@@ -1,4 +1,4 @@
-﻿namespace Team.Bloging.Settings
+﻿namespace Team.Blogging.Settings
 {
     public static class BlogingSettings
     {

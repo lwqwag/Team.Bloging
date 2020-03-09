@@ -3,41 +3,39 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29025.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Bloging.Domain", "src\Team.Bloging.Domain\Team.Bloging.Domain.csproj", "{554AD327-6DBA-4F8F-96F8-81CE7A0C863F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Blogging.Domain", "src\Team.Bloging.Domain\Team.Blogging.Domain.csproj", "{554AD327-6DBA-4F8F-96F8-81CE7A0C863F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Bloging.Application", "src\Team.Bloging.Application\Team.Bloging.Application.csproj", "{1A94A50E-06DC-43C1-80B5-B662820EC3EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Blogging.Application", "src\Team.Bloging.Application\Team.Blogging.Application.csproj", "{1A94A50E-06DC-43C1-80B5-B662820EC3EB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Bloging.Web", "src\Team.Bloging.Web\Team.Bloging.Web.csproj", "{068855E8-9240-4F1A-910B-CF825794513B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Blogging.Web", "src\Team.Bloging.Web\Team.Blogging.Web.csproj", "{068855E8-9240-4F1A-910B-CF825794513B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CA9AC87F-097E-4F15-8393-4BC07735A5B0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{04DBDB01-70F4-4E06-B468-8F87850B22BE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Bloging.Application.Tests", "test\Team.Bloging.Application.Tests\Team.Bloging.Application.Tests.csproj", "{50B2631D-129C-47B3-A587-029CCD6099BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Blogging.Application.Tests", "test\Team.Bloging.Application.Tests\Team.Blogging.Application.Tests.csproj", "{50B2631D-129C-47B3-A587-029CCD6099BC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Bloging.Web.Tests", "test\Team.Bloging.Web.Tests\Team.Bloging.Web.Tests.csproj", "{5F1B28C6-8D0C-4155-92D0-252F7EA5F674}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Bloging.MongoDB", "src\Team.Bloging.MongoDB\Team.Bloging.MongoDB.csproj", "{E3444355-D47E-431E-BDD0-DD3A7113B2AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Blogging.MongoDB", "src\Team.Bloging.MongoDB\Team.Blogging.MongoDB.csproj", "{E3444355-D47E-431E-BDD0-DD3A7113B2AE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Bloging.Domain.Shared", "src\Team.Bloging.Domain.Shared\Team.Bloging.Domain.Shared.csproj", "{42F719ED-8413-4895-B5B4-5AB56079BC66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Blogging.Domain.Shared", "src\Team.Bloging.Domain.Shared\Team.Blogging.Domain.Shared.csproj", "{42F719ED-8413-4895-B5B4-5AB56079BC66}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Bloging.Application.Contracts", "src\Team.Bloging.Application.Contracts\Team.Bloging.Application.Contracts.csproj", "{520659C8-C734-4298-A3DA-B539DB9DFC0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Blogging.Application.Contracts", "src\Team.Bloging.Application.Contracts\Team.Blogging.Application.Contracts.csproj", "{520659C8-C734-4298-A3DA-B539DB9DFC0B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Bloging.HttpApi", "src\Team.Bloging.HttpApi\Team.Bloging.HttpApi.csproj", "{4164BDF7-F527-4E85-9CE6-E3C2D7426A27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Blogging.HttpApi", "src\Team.Bloging.HttpApi\Team.Blogging.HttpApi.csproj", "{4164BDF7-F527-4E85-9CE6-E3C2D7426A27}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Bloging.HttpApi.Client", "src\Team.Bloging.HttpApi.Client\Team.Bloging.HttpApi.Client.csproj", "{3B5A0094-670D-4BB1-BFDD-61B88A8773DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Blogging.HttpApi.Client", "src\Team.Bloging.HttpApi.Client\Team.Blogging.HttpApi.Client.csproj", "{3B5A0094-670D-4BB1-BFDD-61B88A8773DC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Bloging.TestBase", "test\Team.Bloging.TestBase\Team.Bloging.TestBase.csproj", "{91853F21-9CD9-4132-BC29-A7D5D84FFFE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Blogging.TestBase", "test\Team.Bloging.TestBase\Team.Blogging.TestBase.csproj", "{91853F21-9CD9-4132-BC29-A7D5D84FFFE7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Bloging.Domain.Tests", "test\Team.Bloging.Domain.Tests\Team.Bloging.Domain.Tests.csproj", "{E512F4D9-9375-480F-A2F6-A46509F9D824}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Blogging.Domain.Tests", "test\Team.Bloging.Domain.Tests\Team.Blogging.Domain.Tests.csproj", "{E512F4D9-9375-480F-A2F6-A46509F9D824}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Bloging.MongoDB.Tests", "test\Team.Bloging.MongoDB.Tests\Team.Bloging.MongoDB.Tests.csproj", "{6015D17B-104B-4EC2-A9B7-D8A40C891458}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Blogging.MongoDB.Tests", "test\Team.Bloging.MongoDB.Tests\Team.Blogging.MongoDB.Tests.csproj", "{6015D17B-104B-4EC2-A9B7-D8A40C891458}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Bloging.HttpApi.Client.ConsoleTestApp", "test\Team.Bloging.HttpApi.Client.ConsoleTestApp\Team.Bloging.HttpApi.Client.ConsoleTestApp.csproj", "{EF480016-9127-4916-8735-D2466BDBC582}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Blogging.HttpApi.Client.ConsoleTestApp", "test\Team.Bloging.HttpApi.Client.ConsoleTestApp\Team.Blogging.HttpApi.Client.ConsoleTestApp.csproj", "{EF480016-9127-4916-8735-D2466BDBC582}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Bloging.DbMigrator", "src\Team.Bloging.DbMigrator\Team.Bloging.DbMigrator.csproj", "{AA94D832-1CCC-4715-95A9-A483F23A1A5D}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Blogging.Web", "src\Volo.Blogging.Web\Volo.Blogging.Web.csproj", "{ED24F491-9AB9-4571-801E-FC09F1062597}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Blogging.DbMigrator", "src\Team.Bloging.DbMigrator\Team.Blogging.DbMigrator.csproj", "{AA94D832-1CCC-4715-95A9-A483F23A1A5D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,10 +103,6 @@ Global
 		{AA94D832-1CCC-4715-95A9-A483F23A1A5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA94D832-1CCC-4715-95A9-A483F23A1A5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA94D832-1CCC-4715-95A9-A483F23A1A5D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ED24F491-9AB9-4571-801E-FC09F1062597}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ED24F491-9AB9-4571-801E-FC09F1062597}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ED24F491-9AB9-4571-801E-FC09F1062597}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ED24F491-9AB9-4571-801E-FC09F1062597}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -129,7 +123,6 @@ Global
 		{6015D17B-104B-4EC2-A9B7-D8A40C891458} = {04DBDB01-70F4-4E06-B468-8F87850B22BE}
 		{EF480016-9127-4916-8735-D2466BDBC582} = {04DBDB01-70F4-4E06-B468-8F87850B22BE}
 		{AA94D832-1CCC-4715-95A9-A483F23A1A5D} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
-		{ED24F491-9AB9-4571-801E-FC09F1062597} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28315BFD-90E7-4E14-A2EA-F3D23AF4126F}

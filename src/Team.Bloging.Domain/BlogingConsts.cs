@@ -1,4 +1,4 @@
-﻿namespace Team.Bloging
+﻿namespace Team.Blogging
 {
     public static class BlogingConsts
     {

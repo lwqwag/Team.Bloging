@@ -7,7 +7,7 @@ using Volo.Abp.Data;
 using Volo.Abp.Modularity;
 using Volo.Abp.Threading;
 
-namespace Team.Bloging
+namespace Team.Blogging
 {
     [DependsOn(
         typeof(AbpAutofacModule),
@@ -19,7 +19,7 @@ namespace Team.Bloging
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
-            Configure<BackgroundJobOptions>(options =>
+            Configure<AbpBackgroundJobOptions>(options =>
             {
                 options.IsJobExecutionEnabled = false;
             });

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Team.Bloging.Models.Test
+namespace Team.Blogging.Models.Test
 {
     public class TestModel
     {

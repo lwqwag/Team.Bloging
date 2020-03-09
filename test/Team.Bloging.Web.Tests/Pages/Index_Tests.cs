@@ -2,7 +2,7 @@
 using Shouldly;
 using Xunit;
 
-namespace Team.Bloging.Pages
+namespace Team.Blogging.Pages
 {
     public class Index_Tests : BlogingWebTestBase
     {

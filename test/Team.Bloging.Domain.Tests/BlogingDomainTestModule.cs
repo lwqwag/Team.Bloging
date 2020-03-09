@@ -1,10 +1,10 @@
-using Team.Bloging.MongoDb;
+using Team.Blogging.MongoDb;
 using Volo.Abp.Modularity;
 
-namespace Team.Bloging
+namespace Team.Blogging
 {
     [DependsOn(
-        typeof(BlogingMongoDbTestModule)
+        typeof(BloggingMongoDbTestModule)
         )]
     public class BlogingDomainTestModule : AbpModule
     {

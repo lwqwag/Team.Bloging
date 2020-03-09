@@ -1,4 +1,4 @@
-﻿using Team.Bloging.MultiTenancy;
+using Team.Blogging.MultiTenancy;
 using Volo.Abp.AuditLogging;
 using Volo.Abp.BackgroundJobs;
 using Volo.Abp.FeatureManagement;
@@ -10,13 +10,14 @@ using Volo.Abp.PermissionManagement.Identity;
 using Volo.Abp.PermissionManagement.IdentityServer;
 using Volo.Abp.SettingManagement;
 using Volo.Abp.TenantManagement;
+using Volo.Blogging;
 
-namespace Team.Bloging
+namespace Team.Blogging
 {
     [DependsOn(
         typeof(BlogingDomainSharedModule),
         typeof(AbpAuditLoggingDomainModule),
-        typeof(BackgroundJobsDomainModule),
+        typeof(AbpBackgroundJobsDomainSharedModule),
         typeof(AbpFeatureManagementDomainModule),
         typeof(AbpIdentityDomainModule),
         typeof(AbpPermissionManagementDomainIdentityModule),
@@ -25,11 +26,12 @@ namespace Team.Bloging
         typeof(AbpSettingManagementDomainModule),
         typeof(AbpTenantManagementDomainModule)
         )]
+    [DependsOn(typeof(BloggingDomainModule))]
     public class BlogingDomainModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
-            Configure<MultiTenancyOptions>(options =>
+            Configure<AbpMultiTenancyOptions>(options =>
             {
                 options.IsEnabled = MultiTenancyConsts.IsEnabled;
             });

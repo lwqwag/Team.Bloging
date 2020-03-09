@@ -4,7 +4,8 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Team.Blogging.DbMigrator</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,15 +21,15 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.4" />
-    <PackageReference Include="Serilog.Extensions.Logging" Version="2.0.4" />
-    <PackageReference Include="Serilog.Sinks.File" Version="4.0.0" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="3.0.1" />
+    <PackageReference Include="Serilog.Sinks.File" Version="4.1.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.Autofac" Version="0.18.1" />
-    <ProjectReference Include="..\Team.Bloging.Application.Contracts\Team.Bloging.Application.Contracts.csproj" />
-    <ProjectReference Include="..\Team.Bloging.MongoDB\Team.Bloging.MongoDB.csproj" />
+    <PackageReference Include="Volo.Abp.Autofac" Version="2.2.1" />
+    <ProjectReference Include="..\Team.Bloging.Application.Contracts\Team.Blogging.Application.Contracts.csproj" />
+    <ProjectReference Include="..\Team.Bloging.MongoDB\Team.Blogging.MongoDB.csproj" />
   </ItemGroup>
 
 </Project>

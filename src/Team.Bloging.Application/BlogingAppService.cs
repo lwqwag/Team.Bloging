@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Team.Bloging.Localization;
+using Team.Blogging.Localization;
 using Volo.Abp.Application.Services;
 
-namespace Team.Bloging
+namespace Team.Blogging
 {
     /* Inherit your application services from this class.
      */

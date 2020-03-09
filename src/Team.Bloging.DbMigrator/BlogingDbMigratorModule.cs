@@ -1,8 +1,8 @@
-using Team.Bloging.MongoDb;
+using Team.Blogging.MongoDb;
 using Volo.Abp.Autofac;
 using Volo.Abp.Modularity;
 
-namespace Team.Bloging.DbMigrator
+namespace Team.Blogging.DbMigrator
 {
     [DependsOn(
         typeof(AbpAutofacModule),

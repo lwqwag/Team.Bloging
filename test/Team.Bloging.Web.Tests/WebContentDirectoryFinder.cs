@@ -2,7 +2,7 @@
 using System.IO;
 using System.Linq;
 
-namespace Team.Bloging
+namespace Team.Blogging
 {
     /// <summary>
     /// This class is used to find root path of the web project. Used for;

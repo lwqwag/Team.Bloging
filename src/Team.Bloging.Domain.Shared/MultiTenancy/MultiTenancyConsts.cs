@@ -1,4 +1,4 @@
-﻿namespace Team.Bloging.MultiTenancy
+﻿namespace Team.Blogging.MultiTenancy
 {
     public static class MultiTenancyConsts
     {

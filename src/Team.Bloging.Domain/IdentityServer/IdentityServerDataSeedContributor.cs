@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 using Volo.Abp.Authorization.Permissions;
-using Volo.Abp.Configuration;
 using Volo.Abp.Data;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.Guids;
@@ -12,7 +12,7 @@ using Volo.Abp.IdentityServer.IdentityResources;
 using Volo.Abp.PermissionManagement;
 using Volo.Abp.Uow;
 
-namespace Team.Bloging.IdentityServer
+namespace Team.Blogging.IdentityServer
 {
     public class IdentityServerDataSeedContributor : IDataSeedContributor, ITransientDependency
     {
@@ -21,7 +21,7 @@ namespace Team.Bloging.IdentityServer
         private readonly IIdentityResourceDataSeeder _identityResourceDataSeeder;
         private readonly IGuidGenerator _guidGenerator;
         private readonly IPermissionDataSeeder _permissionDataSeeder;
-        private readonly IConfigurationAccessor _configurationAccessor;
+        private readonly IConfiguration _configuration;
 
         public IdentityServerDataSeedContributor(
             IClientRepository clientRepository,
@@ -29,14 +29,14 @@ namespace Team.Bloging.IdentityServer
             IIdentityResourceDataSeeder identityResourceDataSeeder,
             IGuidGenerator guidGenerator,
             IPermissionDataSeeder permissionDataSeeder,
-            IConfigurationAccessor configurationAccessor)
+            IConfiguration configurationAccessor)
         {
             _clientRepository = clientRepository;
             _apiResourceRepository = apiResourceRepository;
             _identityResourceDataSeeder = identityResourceDataSeeder;
             _guidGenerator = guidGenerator;
             _permissionDataSeeder = permissionDataSeeder;
-            _configurationAccessor = configurationAccessor;
+            _configuration = configurationAccessor;
         }
 
         [UnitOfWork]
@@ -59,7 +59,7 @@ namespace Team.Bloging.IdentityServer
                 "role"
             };
 
-            await CreateApiResourceAsync("Bloging", commonApiUserClaims);
+            await CreateApiResourceAsync("Blogging", commonApiUserClaims);
         }
 
         private async Task<ApiResource> CreateApiResourceAsync(string name, IEnumerable<string> claims)
@@ -103,7 +103,7 @@ namespace Team.Bloging.IdentityServer
                 "Bloging"
             };
 
-            var configurationSection = _configurationAccessor.Configuration.GetSection("IdentityServer:Clients");
+            var configurationSection = _configuration.GetSection("IdentityServer:Clients");
 
             //Web Client
             var webClientId = configurationSection["Bloging_Web:ClientId"];

@@ -1,12 +1,12 @@
 ﻿using System.IO;
 using Microsoft.Extensions.DependencyInjection;
-using Team.Bloging.Data;
 using Serilog;
 using Serilog.Events;
+using Team.Blogging.Data;
 using Volo.Abp;
 using Volo.Abp.Threading;
 
-namespace Team.Bloging.DbMigrator
+namespace Team.Blogging.DbMigrator
 {
     class Program
     {

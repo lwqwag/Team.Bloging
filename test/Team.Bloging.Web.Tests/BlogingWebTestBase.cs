@@ -7,16 +7,16 @@ using Newtonsoft.Json.Serialization;
 using Shouldly;
 using Volo.Abp.AspNetCore.TestBase;
 
-namespace Team.Bloging
+namespace Team.Blogging
 {
     public abstract class BlogingWebTestBase : AbpAspNetCoreIntegratedTestBase<BlogingWebTestStartup>
     {
-        protected override IWebHostBuilder CreateWebHostBuilder()
-        {
-            return base
-                .CreateWebHostBuilder()
-                .UseContentRoot(WebContentDirectoryFinder.CalculateContentRootFolder());
-        }
+        //protected override IWebHostBuilder CreateWebHostBuilder()
+        //{
+        //    return base
+        //        .CreateWebHostBuilder()
+        //        .UseContentRoot(WebContentDirectoryFinder.CalculateContentRootFolder());
+        //}
 
         protected virtual async Task<T> GetResponseAsObjectAsync<T>(string url, HttpStatusCode expectedStatusCode = HttpStatusCode.OK)
         {

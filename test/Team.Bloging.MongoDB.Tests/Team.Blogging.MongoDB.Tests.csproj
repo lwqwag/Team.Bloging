@@ -1,19 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <Import Project="..\..\common.props" />
-  
+
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>Team.Bloging</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Team.Bloging.Application\Team.Bloging.Application.csproj" />
-    <ProjectReference Include="..\Team.Bloging.Domain.Tests\Team.Bloging.Domain.Tests.csproj" />
+    <ProjectReference Include="..\..\src\Team.Bloging.MongoDB\Team.Blogging.MongoDB.csproj" />
+    <ProjectReference Include="..\Team.Bloging.TestBase\Team.Blogging.TestBase.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
+    <PackageReference Include="Mongo2Go" Version="2.2.11" />
   </ItemGroup>
 
 </Project>

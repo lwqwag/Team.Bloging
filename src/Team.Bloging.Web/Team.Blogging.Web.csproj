@@ -1,0 +1,72 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <RootNamespace>Team.Blogging.Web</RootNamespace>
+    <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+    <MvcRazorExcludeRefAssembliesFromPublish>false</MvcRazorExcludeRefAssembliesFromPublish>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Logs\**" />
+    <Compile Remove="wwwroot\libs\editor.md\**" />
+    <Content Remove="Logs\**" />
+    <Content Remove="wwwroot\libs\editor.md\**" />
+    <EmbeddedResource Remove="Logs\**" />
+    <EmbeddedResource Remove="wwwroot\libs\editor.md\**" />
+    <None Remove="Logs\**" />
+    <None Remove="wwwroot\libs\editor.md\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Pages\**\*.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Pages\**\*.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.2" />
+    <PackageReference Include="Serilog.AspNetCore" Version="3.2.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="4.1.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />
+    <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
+    <PackageReference Include="Volo.Blogging.Application" Version="2.2.1" />
+    <PackageReference Include="Volo.Blogging.Application.Contracts" Version="2.2.1" />
+    <PackageReference Include="Volo.Blogging.Domain" Version="2.2.1" />
+    <PackageReference Include="Volo.Blogging.Domain.Shared" Version="2.2.1" />
+    <PackageReference Include="Volo.Blogging.HttpApi" Version="2.2.1" />
+    <PackageReference Include="Volo.Blogging.HttpApi.Client" Version="2.2.1" />
+    <PackageReference Include="Volo.Blogging.MongoDB" Version="2.2.1" />
+    <PackageReference Include="Volo.Blogging.Web" Version="2.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Team.Bloging.Application\Team.Blogging.Application.csproj" />
+    <ProjectReference Include="..\Team.Bloging.HttpApi\Team.Blogging.HttpApi.csproj" />
+    <ProjectReference Include="..\Team.Bloging.MongoDB\Team.Blogging.MongoDB.csproj" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic" Version="2.2.1" />
+    <PackageReference Include="Volo.Abp.Autofac" Version="2.2.1" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Authentication.JwtBearer" Version="2.2.1" />
+    <PackageReference Include="Volo.Abp.Identity.Web" Version="2.2.1" />
+    <PackageReference Include="Volo.Abp.Account.Web.IdentityServer" Version="2.2.1" />
+    <PackageReference Include="Volo.Abp.TenantManagement.Web" Version="2.2.1" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.Web" Version="2.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\libs\" />
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties package_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
+</Project>

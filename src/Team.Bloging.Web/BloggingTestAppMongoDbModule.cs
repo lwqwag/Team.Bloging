@@ -4,7 +4,7 @@ using Volo.Abp.PermissionManagement.MongoDB;
 using Volo.Abp.SettingManagement.MongoDB;
 using Volo.Blogging.MongoDB;
 
-namespace Team.Bloging.Web
+namespace Team.Blogging.Web
 {
     [DependsOn(
         typeof(AbpIdentityMongoDbModule),

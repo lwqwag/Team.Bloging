@@ -3,7 +3,7 @@ using System.Security.Claims;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.Security.Claims;
 
-namespace Team.Bloging.Security
+namespace Team.Blogging.Security
 {
     [Dependency(ReplaceServices = true)]
     public class FakeCurrentPrincipalAccessor : ICurrentPrincipalAccessor, ISingletonDependency

@@ -1,11 +1,12 @@
-﻿using Volo.Abp.AutoMapper;
+using Volo.Abp.AutoMapper;
 using Volo.Abp.FeatureManagement;
 using Volo.Abp.Identity;
 using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement;
 using Volo.Abp.TenantManagement;
+using Volo.Blogging;
 
-namespace Team.Bloging
+namespace Team.Blogging
 {
     [DependsOn(
         typeof(BlogingDomainModule),
@@ -15,6 +16,7 @@ namespace Team.Bloging
         typeof(AbpTenantManagementApplicationModule),
         typeof(AbpFeatureManagementApplicationModule)
         )]
+    [DependsOn(typeof(BloggingApplicationModule))]
     public class BlogingApplicationModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)

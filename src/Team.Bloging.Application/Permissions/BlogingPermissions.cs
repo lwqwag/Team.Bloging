@@ -1,4 +1,4 @@
-﻿namespace Team.Bloging.Permissions
+﻿namespace Team.Blogging.Permissions
 {
     public static class BlogingPermissions
     {

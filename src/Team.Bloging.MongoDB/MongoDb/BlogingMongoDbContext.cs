@@ -1,9 +1,9 @@
 ﻿using MongoDB.Driver;
-using Team.Bloging.Users;
+using Team.Blogging.Users;
 using Volo.Abp.Data;
 using Volo.Abp.MongoDB;
 
-namespace Team.Bloging.MongoDb
+namespace Team.Blogging.MongoDb
 {
     [ConnectionStringName("Default")]
     public class BlogingMongoDbContext : AbpMongoDbContext

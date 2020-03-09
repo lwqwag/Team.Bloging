@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace Team.Bloging.Web
+namespace Team.Blogging.Web
 {
     public class BlogingWebAutoMapperProfile : Profile
     {

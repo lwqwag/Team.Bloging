@@ -1,7 +1,7 @@
 ﻿using Volo.Abp.Http.Client.IdentityModel;
 using Volo.Abp.Modularity;
 
-namespace Team.Bloging.HttpApi.Client.ConsoleTestApp
+namespace Team.Blogging.HttpApi.Client.ConsoleTestApp
 {
     [DependsOn(
         typeof(BlogingHttpApiClientModule),

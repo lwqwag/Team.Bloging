@@ -1,12 +1,12 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Localization;
-using Team.Bloging.Localization;
-using Team.Bloging.MultiTenancy;
+using Team.Blogging.Localization;
+using Team.Blogging.MultiTenancy;
 using Volo.Abp.TenantManagement.Web.Navigation;
 using Volo.Abp.UI.Navigation;
 
-namespace Team.Bloging.Web.Menus
+namespace Team.Blogging.Web.Menus
 {
     public class BlogingMenuContributor : IMenuContributor
     {
