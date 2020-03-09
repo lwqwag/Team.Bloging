@@ -112,12 +112,20 @@
   resolved "https://registry.npm.taobao.org/@abp/core/download/@abp/core-0.7.6.tgz#4a6823b53403d07cd3b1d2ecceb9aa8188dd4078"
   integrity sha1-SmgjtTQD0HzTsdLszrmqgYjdQHg=
 
-"@abp/datatables.net-bs4@^0.6.5", "@abp/datatables.net-bs4@^0.7.6":
+"@abp/datatables.net-bs4@^0.6.5":
   version "0.6.5"
   resolved "https://registry.yarnpkg.com/@abp/datatables.net-bs4/-/datatables.net-bs4-0.6.5.tgz#515ec63dea5b23f1ad802bdd8d5e9d337ed9db98"
   integrity sha512-1F8YnwI9/BUe+RoYYjoVDy5XAzqWVVOFtyzZy4z+IuJaHk7AwZoTvgV/5Z2l/L8x5ExxRkF0bCS6VHbM6h1TPQ==
   dependencies:
     "@abp/datatables.net" "^0.6.5"
+    datatables.net-bs4 "^1.10.16"
+
+"@abp/datatables.net-bs4@^0.7.6":
+  version "0.7.6"
+  resolved "https://registry.yarnpkg.com/@abp/datatables.net-bs4/-/datatables.net-bs4-0.7.6.tgz#ddedbf1e2b82f2e869387abdffd193fa26d49c17"
+  integrity sha512-Jz5tPzXTTtAKv+hUGMjbRp/oqaNGk5FZUnsieG575cYACQ8mUrsREPsfU+tyXUBC7gI8n2gjRpddJp9hHYTMDg==
+  dependencies:
+    "@abp/datatables.net" "^0.7.6"
     datatables.net-bs4 "^1.10.16"
 
 "@abp/datatables.net@^0.6.5":
@@ -126,6 +134,14 @@
   integrity sha512-zPuDyDzQ1mzgk3Ofh3TrHwSKa/ti5otnJanJM8W1C9hA9Dvq5xkudXApADLRJVeS3W32vRvwTCdVJlNgqu1PWQ==
   dependencies:
     "@abp/core" "^0.6.5"
+    datatables.net "^1.10.16"
+
+"@abp/datatables.net@^0.7.6":
+  version "0.7.6"
+  resolved "https://registry.yarnpkg.com/@abp/datatables.net/-/datatables.net-0.7.6.tgz#cc652901c54faf2aa48723c2103e745fae63a395"
+  integrity sha512-xow5lOqaDxyQ9w8ms8ASWJ1h7GEgBXnwHE+BgRB6sfopH60NMS5I01aBt/jVs5AK+0AxtY7lCUuXO36f5tkXVA==
+  dependencies:
+    "@abp/core" "^0.7.6"
     datatables.net "^1.10.16"
 
 "@abp/font-awesome@^0.6.5":
@@ -1067,8 +1083,9 @@ extend-shallow@^3.0.0, extend-shallow@^3.0.2:
     is-extendable "^1.0.1"
 
 extend@^3.0.0:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.1.tgz#a755ea7bc1adfcc5a31ce7e762dbaadc5e636444"
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.2.tgz#f8b1136b4071fbd8eb140aff858b1019ec2915fa"
+  integrity sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g==
 
 extglob@^2.0.4:
   version "2.0.4"
