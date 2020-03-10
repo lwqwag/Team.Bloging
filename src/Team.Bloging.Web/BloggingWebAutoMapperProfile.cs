@@ -2,9 +2,9 @@
 
 namespace Team.Blogging.Web
 {
-    public class BlogingWebAutoMapperProfile : Profile
+    public class BloggingWebAutoMapperProfile : Profile
     {
-        public BlogingWebAutoMapperProfile()
+        public BloggingWebAutoMapperProfile()
         {
             //Define your AutoMapper configuration here for the Web project.
         }

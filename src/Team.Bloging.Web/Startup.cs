@@ -12,13 +12,9 @@ namespace Team.Blogging.Web
 {
     public class Startup
     {
-      
-
-    
-
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddApplication<BlogingWebModule>();
+            services.AddApplication<BloggingWebModule>();
         }
 
         public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)

@@ -20,7 +20,7 @@ namespace Team.Blogging
 {
     [DependsOn(
         typeof(AbpAspNetCoreTestBaseModule),
-        typeof(BlogingWebModule),
+        typeof(BloggingWebModule),
         typeof(BloggingApplicationTestModule)
     )]
     public class BlogingWebTestModule : AbpModule
@@ -29,7 +29,7 @@ namespace Team.Blogging
         {
             context.Services.PreConfigure<IMvcBuilder>(builder =>
             {
-                builder.PartManager.ApplicationParts.Add(new AssemblyPart(typeof(BlogingWebModule).Assembly));
+                builder.PartManager.ApplicationParts.Add(new AssemblyPart(typeof(BloggingWebModule).Assembly));
             });
         }
 
@@ -52,7 +52,7 @@ namespace Team.Blogging
             services.Configure<AbpLocalizationOptions>(options =>
             {
                 options.Resources
-                    .Get<BlogingResource>()
+                    .Get<BloggingResource>()
                     .AddBaseTypes(
                         typeof(AbpValidationResource),
                         typeof(AbpUiResource)
@@ -64,7 +64,7 @@ namespace Team.Blogging
         {
             services.Configure<AbpNavigationOptions>(options =>
             {
-                options.MenuContributors.Add(new BlogingMenuContributor());
+                options.MenuContributors.Add(new BloggingMenuContributor());
             });
         }
 

@@ -9,7 +9,7 @@ using Volo.Blogging;
 namespace Team.Blogging
 {
     [DependsOn(
-        typeof(BlogingApplicationContractsModule),
+        typeof(BloggingApplicationContractsModule),
         typeof(AbpIdentityHttpApiClientModule),
         typeof(AbpPermissionManagementHttpApiClientModule),
         typeof(AbpTenantManagementHttpApiClientModule),
@@ -23,7 +23,7 @@ namespace Team.Blogging
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
             context.Services.AddHttpClientProxies(
-                typeof(BlogingApplicationContractsModule).Assembly,
+                typeof(BloggingApplicationContractsModule).Assembly,
                 RemoteServiceName
             );
         }

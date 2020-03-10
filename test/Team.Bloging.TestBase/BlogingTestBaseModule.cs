@@ -13,7 +13,7 @@ namespace Team.Blogging
         typeof(AbpAutofacModule),
         typeof(AbpTestBaseModule),
         typeof(AbpAuthorizationModule),
-        typeof(BlogingDomainModule)
+        typeof(BloggingDomainModule)
         )]
     public class BlogingTestBaseModule : AbpModule
     {

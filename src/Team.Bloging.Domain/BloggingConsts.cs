@@ -1,6 +1,6 @@
 ﻿namespace Team.Blogging
 {
-    public static class BlogingConsts
+    public static class BloggingConsts
     {
         public const string DbTablePrefix = "App";
 

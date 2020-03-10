@@ -13,7 +13,7 @@ using Volo.Blogging.MongoDB;
 namespace Team.Blogging.MongoDb
 {
     [DependsOn(
-        typeof(BlogingDomainModule),
+        typeof(BloggingDomainModule),
         typeof(AbpPermissionManagementMongoDbModule),
         typeof(AbpSettingManagementMongoDbModule),
         typeof(AbpIdentityMongoDbModule),

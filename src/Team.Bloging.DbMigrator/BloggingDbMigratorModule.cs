@@ -7,9 +7,9 @@ namespace Team.Blogging.DbMigrator
     [DependsOn(
         typeof(AbpAutofacModule),
         typeof(BlogingMongoDbModule),
-        typeof(BlogingApplicationContractsModule)
+        typeof(BloggingApplicationContractsModule)
         )]
-    public class BlogingDbMigratorModule : AbpModule
+    public class BloggingDbMigratorModule : AbpModule
     {
         
     }

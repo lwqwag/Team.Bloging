@@ -4,11 +4,15 @@ using Volo.Abp.Localization;
 
 namespace Team.Blogging.Permissions
 {
-    public class BlogingPermissionDefinitionProvider : PermissionDefinitionProvider
+    public class BloggingPermissionDefinitionProvider : PermissionDefinitionProvider
     {
         public override void Define(IPermissionDefinitionContext context)
         {
-            var myGroup = context.AddGroup(BlogingPermissions.GroupName);
+            if (context.GetGroupOrNull(BloggingPermissions.GroupName)==null)
+            {
+                var myGroup = context.AddGroup(BloggingPermissions.GroupName);
+            }
+            
 
             //Define your own permissions here. Example:
             //myGroup.AddPermission(BlogingPermissions.MyPermission1, L("Permission:MyPermission1"));
@@ -16,7 +20,7 @@ namespace Team.Blogging.Permissions
 
         private static LocalizableString L(string name)
         {
-            return LocalizableString.Create<BlogingResource>(name);
+            return LocalizableString.Create<BloggingResource>(name);
         }
     }
 }

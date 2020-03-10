@@ -9,7 +9,7 @@ namespace Team.Blogging.HttpApi.Client.ConsoleTestApp
     {
         static void Main(string[] args)
         {
-            using (var application = AbpApplicationFactory.Create<BlogingConsoleApiClientModule>())
+            using (var application = AbpApplicationFactory.Create<BloggingConsoleApiClientModule>())
             {
                 application.Initialize();
 

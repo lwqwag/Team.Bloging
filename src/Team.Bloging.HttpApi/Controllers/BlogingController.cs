@@ -9,7 +9,7 @@ namespace Team.Blogging.Controllers
     {
         protected BlogingController()
         {
-            LocalizationResource = typeof(BlogingResource);
+            LocalizationResource = typeof(BloggingResource);
         }
     }
 }

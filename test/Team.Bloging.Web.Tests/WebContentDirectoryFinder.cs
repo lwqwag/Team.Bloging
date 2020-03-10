@@ -13,10 +13,10 @@ namespace Team.Blogging
     {
         public static string CalculateContentRootFolder()
         {
-            var domainAssemblyDirectoryPath = Path.GetDirectoryName(typeof(BlogingDomainModule).Assembly.Location);
+            var domainAssemblyDirectoryPath = Path.GetDirectoryName(typeof(BloggingDomainModule).Assembly.Location);
             if (domainAssemblyDirectoryPath == null)
             {
-                throw new Exception($"Could not find location of {typeof(BlogingDomainModule).Assembly.FullName} assembly!");
+                throw new Exception($"Could not find location of {typeof(BloggingDomainModule).Assembly.FullName} assembly!");
             }
 
             var directoryInfo = new DirectoryInfo(domainAssemblyDirectoryPath);

@@ -2,8 +2,8 @@
 
 namespace Team.Blogging.Localization
 {
-    [LocalizationResourceName("Bloging")]
-    public class BlogingResource
+    [LocalizationResourceName("Blogging")]
+    public class BloggingResource
     {
 
     }

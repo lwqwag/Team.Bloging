@@ -9,15 +9,15 @@ using Volo.Blogging;
 namespace Team.Blogging
 {
     [DependsOn(
-        typeof(BlogingDomainModule),
-        typeof(BlogingApplicationContractsModule),
+        typeof(BloggingDomainModule),
+        typeof(BloggingApplicationContractsModule),
         typeof(AbpIdentityApplicationModule),
         typeof(AbpPermissionManagementApplicationModule),
         typeof(AbpTenantManagementApplicationModule),
         typeof(AbpFeatureManagementApplicationModule)
         )]
-    [DependsOn(typeof(BloggingApplicationModule))]
-    public class BlogingApplicationModule : AbpModule
+    [DependsOn(typeof(Volo.Blogging.BloggingApplicationModule))]
+    public class BloggingApplicationModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
@@ -27,7 +27,7 @@ namespace Team.Blogging
                  * validate the profile on application startup.
                  * See http://docs.automapper.org/en/stable/Configuration-validation.html for more info
                  * about the configuration validation. */
-                options.AddProfile<BlogingApplicationAutoMapperProfile>();
+                options.AddProfile<BloggingApplicationAutoMapperProfile>();
             });
         }
     }

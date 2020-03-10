@@ -8,7 +8,7 @@ using Volo.Abp.UI.Navigation;
 
 namespace Team.Blogging.Web.Menus
 {
-    public class BlogingMenuContributor : IMenuContributor
+    public class BloggingMenuContributor : IMenuContributor
     {
         public async Task ConfigureMenuAsync(MenuConfigurationContext context)
         {
@@ -26,9 +26,9 @@ namespace Team.Blogging.Web.Menus
                 administration.TryRemoveMenuItem(TenantManagementMenuNames.GroupName);
             }
 
-            var l = context.ServiceProvider.GetRequiredService<IStringLocalizer<BlogingResource>>();
+            var l = context.ServiceProvider.GetRequiredService<IStringLocalizer<BloggingResource>>();
 
-            context.Menu.Items.Insert(0, new ApplicationMenuItem("Bloging.Home", l["Menu:Home"], "/Blog"));
+            context.Menu.Items.Insert(0, new ApplicationMenuItem("Blogging.Home", l["Menu:Home"], "/Blogs"));
         }
     }
 }

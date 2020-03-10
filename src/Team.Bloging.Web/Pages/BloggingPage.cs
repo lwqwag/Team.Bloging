@@ -11,6 +11,6 @@ namespace Team.Blogging.Web.Pages
     public abstract class BloggingPage : AbpPage
     {
         [RazorInject]
-        public IHtmlLocalizer<BlogingResource> L { get; set; }
+        public IHtmlLocalizer<BloggingResource> L { get; set; }
     }
 }

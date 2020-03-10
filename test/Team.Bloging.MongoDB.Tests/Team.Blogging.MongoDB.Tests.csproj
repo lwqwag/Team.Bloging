@@ -4,7 +4,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>Team.Bloging</RootNamespace>
+    <RootNamespace>Team.Blogging</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

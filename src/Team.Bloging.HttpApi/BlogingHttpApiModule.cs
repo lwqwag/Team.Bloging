@@ -8,7 +8,7 @@ using Volo.Blogging;
 namespace Team.Blogging
 {
     [DependsOn(
-        typeof(BlogingApplicationContractsModule),
+        typeof(BloggingApplicationContractsModule),
         typeof(AbpIdentityHttpApiModule),
         typeof(AbpPermissionManagementHttpApiModule),
         typeof(AbpTenantManagementHttpApiModule),

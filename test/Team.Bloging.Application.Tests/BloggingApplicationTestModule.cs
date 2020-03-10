@@ -3,7 +3,7 @@
 namespace Team.Blogging
 {
     [DependsOn(
-        typeof(BlogingApplicationModule),
+        typeof(BloggingApplicationModule),
         typeof(BlogingDomainTestModule)
         )]
     public class BloggingApplicationTestModule : AbpModule

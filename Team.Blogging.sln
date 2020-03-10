@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{04DBDB01-7
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Blogging.Application.Tests", "test\Team.Bloging.Application.Tests\Team.Blogging.Application.Tests.csproj", "{50B2631D-129C-47B3-A587-029CCD6099BC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Bloging.Web.Tests", "test\Team.Bloging.Web.Tests\Team.Bloging.Web.Tests.csproj", "{5F1B28C6-8D0C-4155-92D0-252F7EA5F674}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Blogging.Web.Tests", "test\Team.Bloging.Web.Tests\Team.Blogging.Web.Tests.csproj", "{5F1B28C6-8D0C-4155-92D0-252F7EA5F674}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team.Blogging.MongoDB", "src\Team.Bloging.MongoDB\Team.Blogging.MongoDB.csproj", "{E3444355-D47E-431E-BDD0-DD3A7113B2AE}"
 EndProject

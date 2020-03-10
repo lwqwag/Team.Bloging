@@ -2,9 +2,9 @@
 
 namespace Team.Blogging
 {
-    public class BlogingApplicationAutoMapperProfile : Profile
+    public class BloggingApplicationAutoMapperProfile : Profile
     {
-        public BlogingApplicationAutoMapperProfile()
+        public BloggingApplicationAutoMapperProfile()
         {
             /* You can configure your AutoMapper mapping configuration here.
              * Alternatively, you can split your mapping configurations

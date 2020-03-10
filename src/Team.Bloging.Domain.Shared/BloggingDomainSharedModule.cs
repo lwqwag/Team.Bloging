@@ -11,7 +11,6 @@ using Volo.Abp.SettingManagement;
 using Volo.Abp.TenantManagement;
 using Volo.Abp.Validation.Localization;
 using Volo.Abp.VirtualFileSystem;
-using Volo.Blogging;
 
 namespace Team.Blogging
 {
@@ -25,22 +24,22 @@ namespace Team.Blogging
         typeof(AbpSettingManagementDomainSharedModule),
         typeof(AbpTenantManagementDomainSharedModule)
         )]
-    [DependsOn(typeof(BloggingDomainSharedModule))]
-    public class BlogingDomainSharedModule : AbpModule
+    [DependsOn(typeof(Volo.Blogging.BloggingDomainSharedModule))]
+    public class BloggingDomainSharedModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
             Configure<AbpVirtualFileSystemOptions>(options =>
             {
-                options.FileSets.AddEmbedded<BlogingDomainSharedModule>("Team.Bloging");
+                options.FileSets.AddEmbedded<BloggingDomainSharedModule>("Team.Blogging");
             });
 
             Configure<AbpLocalizationOptions>(options =>
             {
                 options.Resources
-                    .Add<BlogingResource>("en")
+                    .Add<BloggingResource>("en")
                     .AddBaseTypes(typeof(AbpValidationResource))
-                    .AddVirtualJson("/Localization/Bloging");
+                    .AddVirtualJson("/Localization/Blogging");
             });
         }
     }

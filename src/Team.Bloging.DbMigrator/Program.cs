@@ -14,7 +14,7 @@ namespace Team.Blogging.DbMigrator
         {
             ConfigureLogging();
 
-            using (var application = AbpApplicationFactory.Create<BlogingDbMigratorModule>(options =>
+            using (var application = AbpApplicationFactory.Create<BloggingDbMigratorModule>(options =>
             {
                 options.UseAutofac();
                 options.Services.AddLogging(c => c.AddSerilog());
@@ -25,7 +25,7 @@ namespace Team.Blogging.DbMigrator
                 AsyncHelper.RunSync(
                     () => application
                         .ServiceProvider
-                        .GetRequiredService<BlogingDbMigrationService>()
+                        .GetRequiredService<BloggingDbMigrationService>()
                         .MigrateAsync()
                 );
 

@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Team.Bloging.Web": {
+    "Team.Blogging.Web": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

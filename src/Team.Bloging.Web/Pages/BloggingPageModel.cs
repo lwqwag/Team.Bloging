@@ -9,7 +9,7 @@ namespace Team.Blogging.Web.Pages
     {
         protected BloggingPageModel()
         {
-            LocalizationResourceType = typeof(BlogingResource);
+            LocalizationResourceType = typeof(BloggingResource);
         }
     }
 }

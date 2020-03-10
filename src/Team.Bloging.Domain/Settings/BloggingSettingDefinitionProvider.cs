@@ -2,7 +2,7 @@
 
 namespace Team.Blogging.Settings
 {
-    public class BlogingSettingDefinitionProvider : SettingDefinitionProvider
+    public class BloggingSettingDefinitionProvider : SettingDefinitionProvider
     {
         public override void Define(ISettingDefinitionContext context)
         {

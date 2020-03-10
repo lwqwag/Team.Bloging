@@ -4,8 +4,8 @@ using Volo.Abp.DependencyInjection;
 namespace Team.Blogging.Web
 {
     [Dependency(ReplaceServices = true)]
-    public class BlogingBrandingProvider : DefaultBrandingProvider
+    public class BloggingBrandingProvider : DefaultBrandingProvider
     {
-        public override string AppName => "Bloging";
+        public override string AppName => "Blogging";
     }
 }

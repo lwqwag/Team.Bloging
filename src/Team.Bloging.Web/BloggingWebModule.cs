@@ -13,8 +13,10 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Swagger;
 using Team.Blogging.Localization;
 using Team.Blogging.MongoDb;
+using Team.Blogging.MultiTenancy;
 using Team.Blogging.Web.Menus;
 using Volo.Abp;
+using Volo.Abp.Account;
 using Volo.Abp.Account.Web;
 using Volo.Abp.AspNetCore.Authentication.JwtBearer;
 using Volo.Abp.AspNetCore.Mvc;
@@ -43,7 +45,7 @@ namespace Team.Blogging.Web
 {
     [DependsOn(
         typeof(BlogingHttpApiModule),
-        typeof(BlogingApplicationModule),
+        typeof(BloggingApplicationModule),
         typeof(BlogingMongoDbModule),
         typeof(AbpAutofacModule),
         typeof(AbpIdentityWebModule),
@@ -51,28 +53,29 @@ namespace Team.Blogging.Web
         typeof(AbpAspNetCoreMvcUiBasicThemeModule),
         typeof(AbpAspNetCoreAuthenticationJwtBearerModule),
         typeof(AbpTenantManagementWebModule),
-        typeof(BloggingTestAppMongoDbModule)
-        )]
+        typeof(BloggingTestAppMongoDbModule),
+        typeof(AbpAccountApplicationModule)
+    )]
     [DependsOn(
-        typeof(BloggingWebModule),
-        typeof(BloggingApplicationModule),
+        typeof(Volo.Blogging.BloggingWebModule),
+        typeof(Volo.Blogging.BloggingApplicationModule),
         typeof(AbpIdentityApplicationModule),
         typeof(AbpPermissionManagementDomainIdentityModule),
         typeof(AbpPermissionManagementApplicationModule),
         typeof(AbpAutofacModule))]
-    public class BlogingWebModule : AbpModule
+    public class BloggingWebModule : AbpModule
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)
         {
             context.Services.PreConfigure<AbpMvcDataAnnotationsLocalizationOptions>(options =>
             {
                 options.AddAssemblyResource(
-                    typeof(BlogingResource),
-                    typeof(BlogingDomainModule).Assembly,
-                    typeof(BlogingDomainSharedModule).Assembly,
-                    typeof(BlogingApplicationModule).Assembly,
-                    typeof(BlogingApplicationContractsModule).Assembly,
-                    typeof(BlogingWebModule).Assembly
+                    typeof(BloggingResource),
+                    typeof(BloggingDomainModule).Assembly,
+                    typeof(BloggingDomainSharedModule).Assembly,
+                    typeof(BloggingApplicationModule).Assembly,
+                    typeof(BloggingApplicationContractsModule).Assembly,
+                    typeof(BloggingWebModule).Assembly
                 );
             });
         }
@@ -146,7 +149,7 @@ namespace Team.Blogging.Web
                  * See http://docs.automapper.org/en/stable/Configuration-validation.html for more
                  * about configuration validation.
                  */
-                options.AddProfile<BlogingWebAutoMapperProfile>();
+                options.AddProfile<BloggingWebAutoMapperProfile>();
             });
         }
 
@@ -156,11 +159,11 @@ namespace Team.Blogging.Web
             {
                 Configure<AbpVirtualFileSystemOptions>(options =>
                 {
-                    options.FileSets.ReplaceEmbeddedByPhysical<BlogingDomainSharedModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}Team.Bloging.Domain.Shared", Path.DirectorySeparatorChar)));
-                    options.FileSets.ReplaceEmbeddedByPhysical<BlogingDomainModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}Team.Bloging.Domain", Path.DirectorySeparatorChar)));
-                    options.FileSets.ReplaceEmbeddedByPhysical<BlogingApplicationContractsModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}Team.Bloging.Application.Contracts", Path.DirectorySeparatorChar)));
-                    options.FileSets.ReplaceEmbeddedByPhysical<BlogingApplicationModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}Team.Bloging.Application", Path.DirectorySeparatorChar)));
-                    options.FileSets.ReplaceEmbeddedByPhysical<BlogingWebModule>(hostingEnvironment.ContentRootPath);
+                    options.FileSets.ReplaceEmbeddedByPhysical<BloggingDomainSharedModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}Team.Bloging.Domain.Shared", Path.DirectorySeparatorChar)));
+                    options.FileSets.ReplaceEmbeddedByPhysical<BloggingDomainModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}Team.Bloging.Domain", Path.DirectorySeparatorChar)));
+                    options.FileSets.ReplaceEmbeddedByPhysical<BloggingApplicationContractsModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}Team.Bloging.Application.Contracts", Path.DirectorySeparatorChar)));
+                    options.FileSets.ReplaceEmbeddedByPhysical<BloggingApplicationModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}Team.Bloging.Application", Path.DirectorySeparatorChar)));
+                    options.FileSets.ReplaceEmbeddedByPhysical<BloggingWebModule>(hostingEnvironment.ContentRootPath);
                 });
             }
         }
@@ -170,7 +173,7 @@ namespace Team.Blogging.Web
             Configure<AbpLocalizationOptions>(options =>
             {
                 options.Resources
-                    .Get<BlogingResource>()
+                    .Get<BloggingResource>()
                     .AddBaseTypes(
                         typeof(AbpUiResource)
                     );
@@ -188,7 +191,7 @@ namespace Team.Blogging.Web
           
             Configure<AbpNavigationOptions>(options =>
             {
-                options.MenuContributors.Add(new BlogingMenuContributor());
+                options.MenuContributors.Add(new Menus.BloggingMenuContributor());
             });
            
         }
@@ -197,7 +200,7 @@ namespace Team.Blogging.Web
         {
             Configure<AbpAspNetCoreMvcOptions>(options =>
             {
-                options.ConventionalControllers.Create(typeof(BlogingApplicationModule).Assembly);
+                options.ConventionalControllers.Create(typeof(BloggingApplicationModule).Assembly);
             });
         }
 
@@ -228,37 +231,35 @@ namespace Team.Blogging.Web
 
             app.UseVirtualFiles();
 
+            app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseJwtTokenMiddleware();
+
+            if (MultiTenancyConsts.IsEnabled)
+            {
+                app.UseMultiTenancy();
+            }
+
+            app.UseIdentityServer();
+            app.UseAuthorization();
+            app.UseAbpRequestLocalization();
             app.UseSwagger();
             app.UseSwaggerUI(options =>
             {
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Support APP API");
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "BookStore API");
             });
+            app.UseAuditing();
+            app.UseMvcWithDefaultRouteAndArea();
 
-            app.UseAuthentication();
 
-            app.UseRequestLocalization(app.ApplicationServices.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
-
-            app.UseMvc(routes =>
+            using var scope = context.ServiceProvider.CreateScope();
+            AsyncHelper.RunSync(async () =>
             {
-                routes.MapRoute(
-                    name: "defaultWithArea",
-                    template: "{area}/{controller=Home}/{action=Index}/{id?}");
-
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                await scope.ServiceProvider
+                    .GetRequiredService<IDataSeeder>()
+                    .SeedAsync();
             });
-
-
-            using (var scope = context.ServiceProvider.CreateScope())
-            {
-                AsyncHelper.RunSync(async () =>
-                {
-                    await scope.ServiceProvider
-                        .GetRequiredService<IDataSeeder>()
-                        .SeedAsync();
-                });
-            }
         }
     }
 }

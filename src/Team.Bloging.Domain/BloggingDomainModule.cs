@@ -15,7 +15,7 @@ using Volo.Blogging;
 namespace Team.Blogging
 {
     [DependsOn(
-        typeof(BlogingDomainSharedModule),
+        typeof(BloggingDomainSharedModule),
         typeof(AbpAuditLoggingDomainModule),
         typeof(AbpBackgroundJobsDomainSharedModule),
         typeof(AbpFeatureManagementDomainModule),
@@ -26,8 +26,8 @@ namespace Team.Blogging
         typeof(AbpSettingManagementDomainModule),
         typeof(AbpTenantManagementDomainModule)
         )]
-    [DependsOn(typeof(BloggingDomainModule))]
-    public class BlogingDomainModule : AbpModule
+    [DependsOn(typeof(Volo.Blogging.BloggingDomainModule))]
+    public class BloggingDomainModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
         {

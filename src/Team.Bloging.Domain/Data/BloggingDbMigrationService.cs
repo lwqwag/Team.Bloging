@@ -6,21 +6,21 @@ using Volo.Abp.DependencyInjection;
 
 namespace Team.Blogging.Data
 {
-    public class BlogingDbMigrationService : ITransientDependency
+    public class BloggingDbMigrationService : ITransientDependency
     {
-        public ILogger<BlogingDbMigrationService> Logger { get; set; }
+        public ILogger<BloggingDbMigrationService> Logger { get; set; }
 
         private readonly IDataSeeder _dataSeeder;
-        private readonly IBlogingDbSchemaMigrator _dbSchemaMigrator;
+        private readonly IBloggingDbSchemaMigrator _dbSchemaMigrator;
 
-        public BlogingDbMigrationService(
+        public BloggingDbMigrationService(
             IDataSeeder dataSeeder,
-            IBlogingDbSchemaMigrator dbSchemaMigrator)
+            IBloggingDbSchemaMigrator dbSchemaMigrator)
         {
             _dataSeeder = dataSeeder;
             _dbSchemaMigrator = dbSchemaMigrator;
 
-            Logger = NullLogger<BlogingDbMigrationService>.Instance;
+            Logger = NullLogger<BloggingDbMigrationService>.Instance;
         }
 
         public async Task MigrateAsync()

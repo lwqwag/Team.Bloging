@@ -7,7 +7,7 @@ namespace Team.Blogging.HttpApi.Client.ConsoleTestApp
         typeof(BlogingHttpApiClientModule),
         typeof(AbpHttpClientIdentityModelModule)
         )]
-    public class BlogingConsoleApiClientModule : AbpModule
+    public class BloggingConsoleApiClientModule : AbpModule
     {
         
     }

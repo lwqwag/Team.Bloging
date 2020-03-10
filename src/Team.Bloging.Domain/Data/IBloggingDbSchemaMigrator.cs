@@ -2,7 +2,7 @@
 
 namespace Team.Blogging.Data
 {
-    public interface IBlogingDbSchemaMigrator
+    public interface IBloggingDbSchemaMigrator
     {
         Task MigrateAsync();
     }

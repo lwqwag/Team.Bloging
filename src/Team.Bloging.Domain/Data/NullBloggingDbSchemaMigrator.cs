@@ -6,7 +6,7 @@ namespace Team.Blogging.Data
     /* This is used if database provider does't define
      * IBlogingDbSchemaMigrator implementation.
      */
-    public class NullBlogingDbSchemaMigrator : IBlogingDbSchemaMigrator, ITransientDependency
+    public class NullBloggingDbSchemaMigrator : IBloggingDbSchemaMigrator, ITransientDependency
     {
         public Task MigrateAsync()
         {
