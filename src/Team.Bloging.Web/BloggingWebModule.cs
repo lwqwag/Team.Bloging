@@ -136,7 +136,7 @@ namespace Team.Blogging.Web
                 {
                     options.Authority = configuration["AuthServer:Authority"];
                     options.RequireHttpsMetadata = false;
-                    options.ApiName = "Bloging";
+                    options.ApiName = "Blogging";
                 });
         }
 
@@ -247,7 +247,7 @@ namespace Team.Blogging.Web
             app.UseSwagger();
             app.UseSwaggerUI(options =>
             {
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "BookStore API");
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Bogging API");
             });
             app.UseAuditing();
             app.UseMvcWithDefaultRouteAndArea();
